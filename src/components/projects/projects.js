@@ -28,7 +28,7 @@ const Projects = () => {
     },
     {
       img: seethroughworld,
-      title: 'SeeThroughWorld.',
+      title: 'See Through World.',
       skills: 'JavaScript, ReactJS, Mock API',
       description:
         'See Through World is a website where you can keep notes about the city or, to keep track of all the places on the world map that you have visited. This is a app running on mock Api.',
