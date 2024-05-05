@@ -38,7 +38,7 @@ const Menu = () => {
         </HamburgerButton>
         {menuOpen ? (
           <NavBar>
-            <a href={CV} rel="noreferrer" target="_blank">
+            <a href={CV} target="_blank" rel="noopener noreferrer">
               Resume
             </a>
             <a href="https://www.linkedin.com/in/anur3/">LinkedIn</a>
