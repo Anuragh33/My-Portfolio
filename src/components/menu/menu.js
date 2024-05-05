@@ -38,12 +38,14 @@ const Menu = () => {
         </HamburgerButton>
         {menuOpen ? (
           <NavBar>
-            <a href={CV} target="_blank" rel="noopener noreferrer">
+            <a href={CV} target="_blank" rel="noreferrer">
               Resume
             </a>
             <a href="https://www.linkedin.com/in/anur3/">LinkedIn</a>
             <a href="https://github.com/anuragh33">GitHub</a>
-            <a onClick={scroll}>Contact</a>
+            <a href={CV} onClick={scroll}>
+              Contact
+            </a>
           </NavBar>
         ) : (
           <></>
@@ -58,10 +60,17 @@ const Menu = () => {
             </a>
           </div>
           <div>
-            <a href={CV} target="_blank" className="margin-right">
+            <a
+              href={CV}
+              target="_blank"
+              rel="noreferrer"
+              className="margin-right"
+            >
               Resume
             </a>
-            <a onClick={scroll}>Contact</a>
+            <a href={CV} onClick={scroll}>
+              Contact
+            </a>
           </div>
         </DesktopNav>
       </MenuContainer>
