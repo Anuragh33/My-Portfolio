@@ -11,31 +11,29 @@ const Projects = () => {
   const projects = [
     {
       img: sillyParadise,
-      title: 'Mock Banking App',
-      skills: 'NextJS, TypeScript, Redux, Starling Bank API',
-      description: ``,
-      gitLink: 'https://github.com/hasin202/hasin-starling-test',
-      link: 'https://youtu.be/I28c47rK5iA',
+      title: 'Silly Paradise.',
+      skills: 'ReactJS, JavaScript, Redux, Supabase, Styled Components',
+      description: `Created a dynamic hospitality website using React to seamlessly blend stunning design with intuitive functionality.`,
+      gitLink: 'https://github.com/Anuragh33/sillyparadise',
+      link: 'https://sillyparadise.netlify.app',
     },
     {
       img: pizzainseconds,
-      title: 'Mates Royale.',
+      title: 'Pizza In Seconds.',
       skills:
-        'NextJS, TypeScript, Prisma, GitHub Actions, Databases, TailwindCSS',
-      description: `I saw a missing feature for a game I love playing so I made it :).
-        
-        If you just want to check out the site but don't play clash royale feel free to use my player tag: LGP89JU`,
-      gitLink: 'https://github.com/hasin202/royale-mates',
-      link: 'https://youtu.be/qiut9_YPQVg',
+        'ReactJS, JavaScript, GitHub Actions, Databases, TailwindCSS, Vite',
+      description: `A Simple Ecommerce Pizza website where a user can buy his/her favourite pizza deliverd to their doorstep  :).`,
+      gitLink: 'https://github.com/Anuragh33/pizzaInSeconds',
+      link: 'https://pizzainseconds.netlify.app/',
     },
     {
       img: seethroughworld,
-      title: 'Object Alchemy.',
-      skills: 'TypeScript, ReactJS, Formik, Express, Vercel, TailwindCSS',
+      title: 'SeeThroughWorld.',
+      skills: 'JavaScript, ReactJS, Mock API',
       description:
-        "A dummy data generator which leverages the openAI API to produce relevant content for you. Simply enter an example schema, some context information and you're done. Your dummy data will be with you in less than a minute",
-      gitLink: 'https://github.com/hasin202/ObjectAlchemyFrontEnd',
-      link: 'https://drive.google.com/file/d/1ag4tCa_ECGcDj-hUwQ9DXrHEmEfhqAIL/view?usp=sharing',
+        'See Through World is a website where you can keep notes about the city or, to keep track of all the places on the world map that you have visited. 🤓 This is a test application running on mock Api.',
+      gitLink: 'https://github.com/Anuragh33/seethroughworld/tree/main',
+      link: 'https://seethroughworld.netlify.app',
     },
     {
       img: forkify,
@@ -58,11 +56,10 @@ const Projects = () => {
     {
       img: portfolio,
       title: 'Anuragh.',
-      skills: 'ReactJS, Styled Components, Vercel, Figma',
-      description:
-        'Figured it was about time I made a portfolio to show my skills and stand out. ',
-      gitLink: 'https://github.com/hasin202/personal-portfolio',
-      link: '',
+      skills: 'ReactJS, Styled Components, Netlify',
+      description: 'Time to introduce myself. So,I made a portfolio. ',
+      gitLink: 'https://github.com/Anuragh33/My-Portfolio',
+      link: 'https://anuraghportfolio.netlify.app/',
     },
   ]
   return (
