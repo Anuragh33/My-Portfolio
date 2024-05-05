@@ -3,7 +3,6 @@ import {
   Heading,
   SubHeading,
   RelativeContainer,
-  Signature,
 } from './Header.styled'
 
 import { BasicText } from '../App.styled'
