@@ -22,7 +22,7 @@ const Projects = () => {
       title: 'Pizza In Seconds.',
       skills:
         'ReactJS, JavaScript, GitHub Actions, Databases, TailwindCSS, Vite',
-      description: `A Simple Ecommerce Pizza website where a user can buy his/her favourite pizza deliverd to their doorstep  :).`,
+      description: `A simple ecommerce pizza website where a user can buy his/her favourite pizza deliverd to their doorstep  :).`,
       gitLink: 'https://github.com/Anuragh33/pizzaInSeconds',
       link: 'https://pizzainseconds.netlify.app/',
     },
