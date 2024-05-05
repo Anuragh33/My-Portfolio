@@ -31,27 +31,27 @@ const Projects = () => {
       title: 'SeeThroughWorld.',
       skills: 'JavaScript, ReactJS, Mock API',
       description:
-        'See Through World is a website where you can keep notes about the city or, to keep track of all the places on the world map that you have visited. 🤓 This is a test application running on mock Api.',
+        'See Through World is a website where you can keep notes about the city or, to keep track of all the places on the world map that you have visited. This is a app running on mock Api.',
       gitLink: 'https://github.com/Anuragh33/seethroughworld/tree/main',
       link: 'https://seethroughworld.netlify.app',
     },
     {
       img: forkify,
-      title: 'breathe.',
-      skills: 'ReactJS, Express, Vercel, TailwindCSS, Supabase',
+      title: 'Forkify.',
+      skills: 'JavaScript, HTML, CSS, SASS, Forkify API',
       description:
-        'An IoT dashboard designed to display sensor readings from an Arduino in an easy to understand way accompanied by a chart so that users can visualise trends.',
-      gitLink: 'https://github.com/CO2Sesnsor/breathe.',
-      link: 'https://breathe-front-end.vercel.app/',
+        'Forkify is a recipe web app using the Forkify API to allow users to search, view, modify, bookmark and add recipes.',
+      gitLink: 'https://github.com/Anuragh33/Forkify-Project',
+      link: 'https://spoonandforkk.netlify.app/',
     },
     {
       img: bankofanra,
-      title: 'hasin.io',
-      skills: 'ReactJS, Styled Components, Vercel, Figma',
+      title: 'Bank of AnRa',
+      skills: 'JavaScript, CSS, Vercel, Figma',
       description:
-        'Figured it was about time I made a portfolio to show my skills and stand out. ',
-      gitLink: 'https://github.com/hasin202/personal-portfolio',
-      link: '',
+        'A Virtual banking experience. It  has the option to log in to the account and use different functionalities, almost like in an actual bank. Credentials: ar;1111',
+      gitLink: 'https://github.com/Anuragh33/Bank_of_Anuragh-Project',
+      link: 'https://bankofanra.netlify.app',
     },
     {
       img: portfolio,
