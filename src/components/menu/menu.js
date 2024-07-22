@@ -52,7 +52,7 @@ const Menu = () => {
         )}
         <DesktopNav>
           <div>
-            <a href="https://www.linkedin.com/in/anur3/">
+            <a href="https://www.linkedin.com/in/anur3">
               <Icon margin="20px" src={linkedin} />
             </a>
             <a href="https://github.com/anuragh33">
