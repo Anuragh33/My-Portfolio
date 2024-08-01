@@ -12,11 +12,11 @@ const Skills = () => {
         <SkillBox>NodeJS</SkillBox>
         <SkillBox>ExpressJS</SkillBox>
         <SkillBox>TailwindCSS</SkillBox>
-        <SkillBox>AWS Services</SkillBox>
         <SkillBox>Docker</SkillBox>
         <SkillBox>Kubernetes</SkillBox>
         <SkillBox>MongoDB</SkillBox>
         <SkillBox>PostgreSQL</SkillBox>
+        <SkillBox>AWS Services</SkillBox>
       </SkillsFlexContainer>
     </>
   )

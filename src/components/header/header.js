@@ -21,9 +21,9 @@ const Header = () => {
         <strong> 4 plus years </strong> experience in designing, developing, and
         maintaining web applications. <br />
         Proficient in both <strong>Frontend and Backend Technologies</strong>,
-        Deployed applications to multiple cloud-based production environments,
-        set up and maintained a relational database system, integrated
-        third-party services. Here's my current tech stack:
+        Deployed applications to multiple cloud-based production Env's, set up
+        and maintained a relational DB's, integrated third-party services.
+        Here's my current tech stack:
       </BasicText>
 
       <Skills />
