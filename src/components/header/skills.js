@@ -15,8 +15,8 @@ const Skills = () => {
         <SkillBox>Docker</SkillBox>
         <SkillBox>Kubernetes</SkillBox>
         <SkillBox>MongoDB</SkillBox>
-        <SkillBox>PostgreSQL</SkillBox>
         <SkillBox>AWS</SkillBox>
+        <SkillBox>PostgreSQL</SkillBox>
       </SkillsFlexContainer>
     </>
   )
