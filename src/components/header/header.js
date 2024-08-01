@@ -17,11 +17,11 @@ const Header = () => {
       </RelativeContainer>
       <BasicText>
         I am a skilled and versatile <strong> Full-Stack Developer </strong>
-        with a {'\n'}
+        with a <br />
         <strong> 4 plus years </strong> experience in designing, developing, and
-        maintaining web applications. {'\n'}
+        maintaining web applications. <br />
         Proficient in both front-end and back-end technologies, I have a deep
-        understanding of the full software development lifecycle. {'\n'}
+        understanding of the full software development lifecycle. <br />
         Here's my current tech stack:
       </BasicText>
 
