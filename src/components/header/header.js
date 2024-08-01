@@ -15,17 +15,20 @@ const Header = () => {
       <RelativeContainer>
         <Heading>Anuragh.</Heading>
       </RelativeContainer>
-
       <BasicText>
         I am a skilled and versatile <strong> Full-Stack Developer </strong>
-        with a <strong> 4 plus years </strong> experience in designing,
-        developing, and maintaining web applications.
+        with a{' '}
+        <pre>
+          <strong> 4 plus years </strong> experience in designing, developing,
+          and maintaining web applications.
+        </pre>
+        <pre>
+          Proficient in both front-end and back-end technologies, I have a deep
+          understanding of the full software development lifecycle.
+        </pre>
+        <pre>Here's my current tech stack:</pre>
       </BasicText>
-      <BasicText>
-        Proficient in both front-end and back-end technologies, I have a deep
-        understanding of the full software development lifecycle. Here's my
-        current tech stack:
-      </BasicText>
+
       <Skills />
     </HeaderContainer>
   )

@@ -8,6 +8,7 @@ const Skills = () => {
         <SkillBox>ReactJS</SkillBox>
         <SkillBox>JavaScript</SkillBox>
         <SkillBox>Python</SkillBox>
+        <SkillBox>TypeScript</SkillBox>
         <SkillBox>NodeJS</SkillBox>
         <SkillBox>ExpressJS</SkillBox>
         <SkillBox>MongoDB</SkillBox>
