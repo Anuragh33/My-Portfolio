@@ -16,7 +16,7 @@ const Header = () => {
         <Heading>Anuragh.</Heading>
       </RelativeContainer>
       <BasicText>
-        I am a skilled and versatile <strong> Full-Stack Developer </strong>
+        I'm a skilled and versatile <strong> Full-Stack Developer </strong>
         with a <br />
         <strong> 4 plus years </strong> experience in designing, developing, and
         maintaining web applications. <br />
