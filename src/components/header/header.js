@@ -21,8 +21,8 @@ const Header = () => {
         <strong> 4 plus years </strong> experience in designing, developing, and
         maintaining web applications. <br />
         Proficient in both front-end and back-end technologies, I have a deep
-        understanding of the full software development lifecycle. <br />
-        Here's my current tech stack:
+        understanding of the full software development lifecycle. Here's my
+        current tech stack:
       </BasicText>
 
       <Skills />
