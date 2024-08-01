@@ -56,7 +56,7 @@ export const SectionHeading = styled.div`
 `
 
 export const BasicText = styled.p`
-  padding-top: 40px;
+  padding-top: 20px;
   font-size: 16px;
   text-align: ${(props) => (props.align ? props.align : 'left')};
   line-height: 1.4em;
