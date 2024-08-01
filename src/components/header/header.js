@@ -17,11 +17,11 @@ const Header = () => {
       </RelativeContainer>
 
       <BasicText>
-        I am a highly skilled and versatile full-stack developer with $ plus
+        I am a highly skilled and versatile full-stack developer with 4 plus
         years of experience in designing, developing, and maintaining web
         applications. Proficient in both front-end and back-end technologies, I
         have a deep understanding of the full software development lifecycle,
-        from initial planning and design to deployment and maintenance.. Here's
+        from initial planning and design to deployment and maintenance....Here's
         my current tech stack:
       </BasicText>
       <Skills />

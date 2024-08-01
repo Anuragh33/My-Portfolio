@@ -4,13 +4,17 @@ const Skills = () => {
   return (
     <>
       <SkillsFlexContainer>
+        <SkillBox>NextJS</SkillBox>
         <SkillBox>ReactJS</SkillBox>
         <SkillBox>JavaScript</SkillBox>
-        <SkillBox>Redux</SkillBox>
+        <SkillBox>Python</SkillBox>
         <SkillBox>NodeJS</SkillBox>
+        <SkillBox>ExpressJS</SkillBox>
         <SkillBox>MongoDB</SkillBox>
-        <SkillBox>SQL</SkillBox>
+        <SkillBox>PostgreSQL</SkillBox>
         <SkillBox>TailwindCSS</SkillBox>
+        <SkillBox>Docker</SkillBox>
+        <SkillBox>Kubernetes</SkillBox>
       </SkillsFlexContainer>
     </>
   )
