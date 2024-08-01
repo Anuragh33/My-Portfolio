@@ -17,9 +17,9 @@ const Header = () => {
       </RelativeContainer>
 
       <BasicText>
-        I am a skilled and versatile <strong>Full-Stack Developer</strong> with
-        a <strong> 4 plus years</strong> experience in designing, developing,
-        and maintaining web applications.
+        I am a skilled and versatile <strong> Full-Stack Developer </strong>
+        with a <strong> 4 plus years </strong> experience in designing,
+        developing, and maintaining web applications.
       </BasicText>
       <BasicText>
         Proficient in both front-end and back-end technologies, I have a deep

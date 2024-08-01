@@ -37,7 +37,7 @@ export const Heading = styled.h1`
   color: #41b06e;
   margin-left: -0.06em;
   margin-bottom: 25px;
-  padding-top: 30px;
+  padding-top: 40px;
 
   @media ${device.tablet} {
     font-size: 110px;
