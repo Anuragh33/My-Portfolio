@@ -17,9 +17,8 @@ const Header = () => {
       </RelativeContainer>
       <BasicText>
         I'm a skilled and versatile <strong> Full-Stack Developer </strong>
-        with a <br />
-        <strong> 4 plus years </strong> experience in designing, developing, and
-        maintaining web applications. <br />
+        with a <strong> 4 plus years </strong> experience in designing,
+        developing, and maintaining web applications. <br />
         Proficient in both <strong>Frontend and Backend Technologies</strong>,
         Deployed applications to multiple cloud-based production Env's, set up &
         maintained relational DB's, integrated third-party services. Here's my
