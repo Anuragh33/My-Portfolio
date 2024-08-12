@@ -58,7 +58,7 @@ export const SectionHeading = styled.div`
 export const BasicText = styled.p`
   padding-top: 10px;
   font-size: 16px;
-  text-align: ${(props) => (props.align ? props.align : 'left')};
+  text-align: ${(props) => (props.align ? props.align : 'justify')};
   line-height: 1.4em;
 
   @media ${device.tablet} {
