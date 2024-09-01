@@ -68,7 +68,7 @@ const Menu = () => {
             >
               Resume
             </a>
-            <a href={} onClick={scroll}>
+            <a href={scroll} onClick={scroll}>
               Contact
             </a>
           </div>
