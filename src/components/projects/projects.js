@@ -12,7 +12,7 @@ const Projects = () => {
   const projects = [
     {
       img: sillyParadise_customerPortal,
-      title: 'Silly Paradise Customer Portal',
+      title: 'Silly Paradise Customer Portal.',
       skills: 'NextJS, ReactJS, Supabase, Tailwind CSS',
       description: `Welcome to Silly Paradise’s Customer Portal, your gateway to a delightful hospitality experience. Our portal offers an easy and seamless way for guests to explore a curated list of cozy cabins, each uniquely designed to ensure a memorable stay. `,
       gitLink: 'https://github.com/Anuragh33/sillyParadise_CustomerPortal',
@@ -55,7 +55,7 @@ const Projects = () => {
     },
     {
       img: bankofanra,
-      title: 'Bank of AnRa',
+      title: 'Bank of AnRa.',
       skills: 'JavaScript, CSS, Vercel, Figma',
       description:
         'A Virtual banking experience. It  has the option to log in to the account and use different functionalities, almost like in an actual bank. Credentials: ar;1111',
