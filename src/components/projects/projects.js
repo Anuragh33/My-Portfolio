@@ -56,7 +56,7 @@ const Projects = () => {
     {
       img: bankofanra,
       title: 'Bank of AnRa.',
-      skills: 'AJAX, JavaScript, CSS, HTML 5',
+      skills: 'AJAX, JavaScript, CSS, HTML5',
       description:
         'A Virtual banking experience. It  has the option to log in to the account and use different functionalities, almost like in an actual bank. Credentials: ar;1111',
       gitLink: 'https://github.com/Anuragh33/Bank_of_Anuragh-Project',
