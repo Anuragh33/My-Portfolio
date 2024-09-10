@@ -66,7 +66,7 @@ const Projects = () => {
       img: portfolio,
       title: 'Anuragh.',
       skills: 'ReactJS, Styled Components, Netlify',
-      description: 'Time to introduce myself. So,I made a portfolio. ',
+      description: 'Time to introduce myself. So, I made a portfolio!! ',
       gitLink: 'https://github.com/Anuragh33/My-Portfolio',
       link: 'https://anuraghportfolio.netlify.app/',
     },
