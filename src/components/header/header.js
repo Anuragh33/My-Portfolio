@@ -11,7 +11,7 @@ import Skills from './skills'
 const Header = () => {
   return (
     <HeaderContainer>
-      <SubHeading>Hi I'm</SubHeading>
+      <SubHeading>Hi, I'm</SubHeading>
       <RelativeContainer>
         <Heading>Anuragh.</Heading>
       </RelativeContainer>
