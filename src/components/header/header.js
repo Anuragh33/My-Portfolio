@@ -19,11 +19,9 @@ const Header = () => {
         I'm a skilled and versatile <strong> Full-Stack Developer </strong>
         with a <strong> 4 plus years </strong> experience in designing,
         developing, and maintaining web applications. Proficient in both
-        <strong> Frontend and Backend Technologies.</strong>
-      </BasicText>
-      <BasicText>
-        Deployed applications to multiple cloud-based production Env's,Setup &
-        maintained relational DB's,integrated third-party services. Here's my
+        <strong> Frontend & Backend Technologies.</strong> Deployed applications
+        to multiple cloud-based production Environments, configured and managed
+        relational databases, and integrated third-party services. Here's my
         current tech stack:
       </BasicText>
 
