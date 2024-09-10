@@ -20,6 +20,8 @@ const Header = () => {
         with a <strong> 4 plus years </strong> experience in designing,
         developing, and maintaining web applications. Proficient in both
         <strong> Frontend and Backend Technologies.</strong>
+      </BasicText>
+      <BasicText>
         Deployed applications to multiple cloud-based production Env's,Setup &
         maintained relational DB's,integrated third-party services. Here's my
         current tech stack:
