@@ -9,7 +9,8 @@ const Contact = () => {
       <ContactFlexContainer>
         <BasicText align="center">
           If there are any intriguin' opportunities or just feelin' like
-          droppin' a <strong>Hey</strong>, My inbox is the place to be!
+          droppin' a <strong>Hey</strong>, <br />
+          My inbox is the place to be!
         </BasicText>
         <ContactLink href="mailto: anuraghragidimilli@icloud.com">
           Hola.
