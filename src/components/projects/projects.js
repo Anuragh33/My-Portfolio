@@ -7,9 +7,18 @@ import pizzainseconds from '../../assets/pizzainseconds.png'
 import portfolio from '../../assets/portfolio.png'
 import sillyParadise from '../../assets/sillyParadise.png'
 import sillyParadise_customerPortal from '../../assets/sillyParadise_customerPortal.png'
+import bhasha from '../../assets/Bhasha.png'
 
 const Projects = () => {
   const projects = [
+    {
+      img: bhasha,
+      title: 'Bhasha.',
+      skills: 'NextJS, ReactJS, PostgreSQL, Drizzle, NeonDB',
+      description: `Bhasha is a web application designed to facilitate language learning. Currently, it supports Spanish language learners.`,
+      gitLink: 'https://github.com/Anuragh33/Bhasha',
+      link: 'https://bhasha-xi.vercel.app/',
+    },
     {
       img: sillyParadise_customerPortal,
       title: 'Silly Paradise Customer Portal.',
@@ -53,15 +62,15 @@ const Projects = () => {
       gitLink: 'https://github.com/Anuragh33/Forkify-Project',
       link: 'https://spoonandforkk.netlify.app/',
     },
-    {
-      img: bankofanra,
-      title: 'Bank of AnRa.',
-      skills: 'AJAX, JavaScript, CSS, HTML5',
-      description:
-        'A Virtual banking experience. It  has the option to log in to the account and use different functionalities, almost like in an actual bank. Credentials: ar;1111',
-      gitLink: 'https://github.com/Anuragh33/Bank_of_Anuragh-Project',
-      link: 'https://bankofanra.netlify.app',
-    },
+    // {
+    //   img: bankofanra,
+    //   title: 'Bank of AnRa.',
+    //   skills: 'AJAX, JavaScript, CSS, HTML5',
+    //   description:
+    //     'A Virtual banking experience. It  has the option to log in to the account and use different functionalities, almost like in an actual bank. Credentials: ar;1111',
+    //   gitLink: 'https://github.com/Anuragh33/Bank_of_Anuragh-Project',
+    //   link: 'https://bankofanra.netlify.app',
+    // },
     {
       img: portfolio,
       title: 'Anuragh.',
