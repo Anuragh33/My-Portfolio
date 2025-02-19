@@ -1,7 +1,7 @@
 import { SectionHeading } from '../App.styled'
 import ProjectCard from './projectcard'
 import forkify from '../../assets/forkify.png'
-import bankofanra from '../../assets/bankofanra.png'
+//import bankofanra from '../../assets/bankofanra.png'
 import seethroughworld from '../../assets/seethroughworld.png'
 import pizzainseconds from '../../assets/pizzainseconds.png'
 import portfolio from '../../assets/portfolio.png'
