@@ -21,10 +21,7 @@ const Header = () => {
         reusable user interfaces using Next, React, and Typescript. Focused on
         developing secure, high-performance web applications, optimizing
         functionality, and integrating new features while working with modern
-        architecture patterns, in an Agile environment. Beyond frontend
-        development, I have strong backend expertise in Node JS, Django, Drizzle
-        ORM, GraphQL and RESTful APIs, along with proficiency in SDLC and
-        Git.Here's my current tech stack:
+        architecture patterns, in an Agile environment. Here's my tech stack,
       </BasicText>
 
       <Skills />
