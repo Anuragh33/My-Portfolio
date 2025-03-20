@@ -60,14 +60,14 @@ const Menu = () => {
             </a>
           </div>
           <div>
-            <a
+            {/* <a
               href={CV}
               target="_blank"
               rel="noreferrer"
               className="margin-right"
             >
               Resume
-            </a>
+            </a> */}
             <a href={scroll} onClick={scroll}>
               Contact
             </a>

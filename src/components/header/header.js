@@ -16,13 +16,15 @@ const Header = () => {
         <Heading>Anuragh.</Heading>
       </RelativeContainer>
       <BasicText>
-        I'm a skilled and versatile <strong> Full-Stack Developer </strong>
-        with a <strong> 4 plus years </strong> experience in designing,
-        developing, and maintaining web applications. Proficient in both
-        <strong> Frontend & Backend Technologies.</strong> Deployed applications
-        to multiple cloud-based production Environments, configured and managed
-        relational databases, and integrated third-party services. Here's my
-        current tech stack:
+        {' '}
+        Experienced Full Stack Developer passionate about building scalable and
+        reusable user interfaces using Next, React, and Typescript. Focused on
+        developing secure, high-performance web applications, optimizing
+        functionality, and integrating new features while working with modern
+        architecture patterns, in an Agile environment. Beyond frontend
+        development, I have strong backend expertise in Node JS, Django, Drizzle
+        ORM, GraphQL and RESTful APIs, along with proficiency in SDLC and
+        Git.Here's my current tech stack:
       </BasicText>
 
       <Skills />
