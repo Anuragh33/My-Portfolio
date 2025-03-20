@@ -38,9 +38,9 @@ const Menu = () => {
         </HamburgerButton>
         {menuOpen ? (
           <NavBar>
-            <a href={CV} target="_blank" rel="noreferrer">
+            {/* <a href={CV} target="_blank" rel="noreferrer">
               Resume
-            </a>
+            </a> */}
             <a href="https://www.linkedin.com/in/anur3/">LinkedIn</a>
             <a href="https://github.com/anuragh33">GitHub</a>
             <a href={CV} onClick={scroll}>
