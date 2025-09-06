@@ -39,7 +39,7 @@ const Menu = () => {
           <NavBar>
             <a href="https://www.linkedin.com/in/anur3/">LinkedIn</a>
             <a href="https://github.com/anuragh33">GitHub</a>
-            <a href="#" onClick={scroll}>
+            <a href="/" onClick={scroll}>
               Contact
             </a>
           </NavBar>
