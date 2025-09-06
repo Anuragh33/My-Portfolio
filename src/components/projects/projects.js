@@ -1,7 +1,6 @@
 import { SectionHeading } from '../App.styled'
+
 import ProjectCard from './projectcard'
-import forkify from '../../assets/forkify.png'
-//import bankofanra from '../../assets/bankofanra.png'
 import seethroughworld from '../../assets/seethroughworld.png'
 import pizzainseconds from '../../assets/pizzainseconds.png'
 import portfolio from '../../assets/portfolio.png'
@@ -9,15 +8,25 @@ import sillyParadise from '../../assets/sillyParadise.png'
 import sillyParadise_customerPortal from '../../assets/sillyParadise_customerPortal.png'
 import bhasha from '../../assets/Bhasha.png'
 
+import idea from '../../assets/idea-ai.png'
+
 const Projects = () => {
   const projects = [
+    {
+      img: idea,
+      title: 'Idea AI.',
+      skills: 'NextJS, Open AI, tRPC, Stream API, Polar, Inngest, ',
+      description: `Idea.AI is a lightweight Next.js starter kit designed for rapidly building and iterating on AI-powered product ideas.`,
+      gitLink: 'https://github.com/Anuragh33/Idea.AI',
+      link: 'https://idea-ai-eight.vercel.app/',
+    },
     {
       img: bhasha,
       title: 'Bhasha.',
       skills: 'NextJS, ReactJS, PostgreSQL, Drizzle, NeonDB',
       description: `Bhasha is a web application designed to facilitate language learning. Currently, it supports Spanish language learners.`,
       gitLink: 'https://github.com/Anuragh33/Bhasha',
-      link: 'https://bhasha-xi.vercel.app/',
+      link: 'https://bhasha-xi.vercel.app',
     },
     {
       img: sillyParadise_customerPortal,
@@ -25,7 +34,7 @@ const Projects = () => {
       skills: 'NextJS, ReactJS, Supabase, Tailwind CSS',
       description: `Welcome to Silly Paradise’s Customer Portal, your gateway to a delightful hospitality experience. Our portal offers an easy and seamless way for guests to explore a curated list of cozy cabins, each uniquely designed to ensure a memorable stay. `,
       gitLink: 'https://github.com/Anuragh33/sillyParadise_CustomerPortal',
-      link: 'https://sillyparadisecustomerportal.vercel.app/',
+      link: 'https://sillyparadisecustomerportal.vercel.app',
     },
     {
       img: sillyParadise,
@@ -42,7 +51,7 @@ const Projects = () => {
         'ReactJS, JavaScript, GitHub Actions, Databases, TailwindCSS, Vite',
       description: `A simple ecommerce pizza website where a user can buy his/her favourite pizza deliverd to their doorstep  :).`,
       gitLink: 'https://github.com/Anuragh33/pizzaInSeconds',
-      link: 'https://pizzainseconds.netlify.app/',
+      link: 'https://pizzainseconds.netlify.app',
     },
     {
       img: seethroughworld,
@@ -53,15 +62,15 @@ const Projects = () => {
       gitLink: 'https://github.com/Anuragh33/seethroughworld/tree/main',
       link: 'https://seethroughworld.netlify.app',
     },
-    {
-      img: forkify,
-      title: 'Forkify.',
-      skills: 'JavaScript, HTML, CSS, SASS, Forkify API',
-      description:
-        'Forkify is a recipe web app using the Forkify API to allow users to search, view, modify, bookmark and add recipes.',
-      gitLink: 'https://github.com/Anuragh33/Forkify-Project',
-      link: 'https://spoonandforkk.netlify.app/',
-    },
+    // {
+    //   img: forkify,
+    //   title: 'Forkify.',
+    //   skills: 'JavaScript, HTML, CSS, SASS, Forkify API',
+    //   description:
+    //     'Forkify is a recipe web app using the Forkify API to allow users to search, view, modify, bookmark and add recipes.',
+    //   gitLink: 'https://github.com/Anuragh33/Forkify-Project',
+    //   link: 'https://spoonandforkk.netlify.app/',
+    // },
     // {
     //   img: bankofanra,
     //   title: 'Bank of AnRa.',
@@ -76,7 +85,7 @@ const Projects = () => {
       title: 'Anuragh.',
       skills: 'ReactJS, Styled Components, Netlify',
       description: 'Time to introduce myself. So, I made a portfolio!! ',
-      gitLink: 'https://github.com/Anuragh33/My-Portfolio',
+
       link: 'https://anuraghportfolio.netlify.app/',
     },
   ]
