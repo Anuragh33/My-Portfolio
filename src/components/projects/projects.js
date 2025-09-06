@@ -29,20 +29,30 @@ const Projects = () => {
       link: 'https://bhasha-xi.vercel.app',
     },
     {
-      img: sillyParadise_customerPortal,
-      title: 'Silly Paradise Customer Portal.',
-      skills: 'NextJS, ReactJS, Supabase, Tailwind CSS',
-      description: `Welcome to Silly Paradise’s Customer Portal, your gateway to a delightful hospitality experience. Our portal offers an easy and seamless way for guests to explore a curated list of cozy cabins, each uniquely designed to ensure a memorable stay. `,
-      gitLink: 'https://github.com/Anuragh33/sillyParadise_CustomerPortal',
-      link: 'https://sillyparadisecustomerportal.vercel.app',
-    },
-    {
       img: sillyParadise,
       title: 'Silly Paradise.',
       skills: 'ReactJS, JavaScript, Redux, Supabase, Styled Components',
       description: `Created a dynamic hospitality website using React to seamlessly blend stunning design with intuitive functionality.`,
       gitLink: 'https://github.com/Anuragh33/sillyparadise',
       link: 'https://sillyparadise.netlify.app',
+    },
+    {
+      img: sillyParadise_customerPortal,
+      title: 'Silly Paradise Customer Portal.',
+      skills: 'NextJS, ReactJS, Supabase, Tailwind CSS',
+      description: `Welcome to Silly Paradise’s Customer Portal, your gateway to a delightful hospitality experience. `,
+      gitLink: 'https://github.com/Anuragh33/sillyParadise_CustomerPortal',
+      link: 'https://sillyparadisecustomerportal.vercel.app',
+    },
+
+    {
+      img: seethroughworld,
+      title: 'See Through World.',
+      skills: 'JavaScript, ReactJS, Mock API',
+      description:
+        'See Through World is a website where you can keep notes about the city or, to keep track of all the places on the world map that you have visited. This is a app running on mock Api.',
+      gitLink: 'https://github.com/Anuragh33/seethroughworld/tree/main',
+      link: 'https://seethroughworld.netlify.app',
     },
     {
       img: pizzainseconds,
@@ -52,15 +62,6 @@ const Projects = () => {
       description: `A simple ecommerce pizza website where a user can buy his/her favourite pizza deliverd to their doorstep  :).`,
       gitLink: 'https://github.com/Anuragh33/pizzaInSeconds',
       link: 'https://pizzainseconds.netlify.app',
-    },
-    {
-      img: seethroughworld,
-      title: 'See Through World.',
-      skills: 'JavaScript, ReactJS, Mock API',
-      description:
-        'See Through World is a website where you can keep notes about the city or, to keep track of all the places on the world map that you have visited. This is a app running on mock Api.',
-      gitLink: 'https://github.com/Anuragh33/seethroughworld/tree/main',
-      link: 'https://seethroughworld.netlify.app',
     },
     // {
     //   img: forkify,
