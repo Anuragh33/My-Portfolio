@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../device";
+import styled from 'styled-components'
+import { device } from '../device'
 
 export const CardImg = styled.img`
   width: 100%;
@@ -8,14 +8,14 @@ export const CardImg = styled.img`
   border-left: 0.5px solid #ddd;
   border-right: 0.5px solid #ddd;
   border-top: 0.5px solid #ddd;
-`;
+`
 
 export const CardInfo = styled.div`
   width: 100%;
   border-left: 0.5px solid #ddd;
   border-right: 0.5px solid #ddd;
   border-bottom: 0.5px solid #ddd;
-  background-color: white;
+  background-color: green;
   padding: 20px 20px;
   border-radius: 0 0 5px 5px;
   margin-bottom: 30px;
@@ -31,7 +31,7 @@ export const CardInfo = styled.div`
       margin-bottom: 30px;
     }
   }
-`;
+`
 
 export const CardHeading = styled.h1`
   font-size: 36px;
@@ -42,7 +42,7 @@ export const CardHeading = styled.h1`
     font-size: 48px;
     // margin-bottom: 15px;
   }
-`;
+`
 
 export const ProjectSkills = styled.p`
   font-family: IBM Plex Mono;
@@ -52,7 +52,7 @@ export const ProjectSkills = styled.p`
   @media ${device.tablet} {
     font-size: 18px;
   }
-`;
+`
 
 export const ProjectDescription = styled.p`
   font-size: 16px;
@@ -61,4 +61,4 @@ export const ProjectDescription = styled.p`
   @media ${device.tablet} {
     font-size: 20px;
   }
-`;
+`
