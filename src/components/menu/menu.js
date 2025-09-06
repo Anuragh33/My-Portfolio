@@ -6,7 +6,6 @@ import {
 } from './Menu.styled'
 import { Icon } from '../App.styled'
 import { useState } from 'react'
-import CV from '../../assets/Resume.pdf'
 import linkedin from '../../assets/linkedin.svg'
 import githubnav from '../../assets/githubnav.svg'
 
@@ -38,9 +37,6 @@ const Menu = () => {
         </HamburgerButton>
         {menuOpen ? (
           <NavBar>
-            {/* <a href={CV} target="_blank" rel="noreferrer">
-              Resume
-            </a> */}
             <a href="https://www.linkedin.com/in/anur3/">LinkedIn</a>
             <a href="https://github.com/anuragh33">GitHub</a>
             <a href={CV} onClick={scroll}>
@@ -60,14 +56,6 @@ const Menu = () => {
             </a>
           </div>
           <div>
-            {/* <a
-              href={CV}
-              target="_blank"
-              rel="noreferrer"
-              className="margin-right"
-            >
-              Resume
-            </a> */}
             <a href={scroll} onClick={scroll}>
               Contact
             </a>
