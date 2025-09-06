@@ -18,7 +18,7 @@ export const CardInfo = styled.div`
   background-color: green;
   padding: 20px 20px;
   border-radius: 0 0 5px 5px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   p {
     margin-bottom: 20px;
     line-height: 1.4em;
