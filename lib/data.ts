@@ -195,7 +195,10 @@ export const projects: Project[] = [
       "Good AI products are often workflow products first. The model matters, but the surrounding system matters more.",
     stack: ["Next.js", "TypeScript", "FastAPI", "Python", "OpenAI", "Pipeline scheduling"],
     capabilities: ["AI systems", "Backend orchestration", "Product UX", "Automation"],
-    links: [{ label: "Case study only", href: "/contact", kind: "case-study" }],
+    links: [
+      { label: "Live demo", href: "https://worksearch-33ha.vercel.app/sign-in", kind: "demo" },
+      { label: "Case study only", href: "/contact", kind: "case-study" }
+    ],
     featured: true,
     order: 2,
     accent: "from-cyan-300/25 via-[#5ed29c]/10 to-transparent"
@@ -240,6 +243,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Clerk", "Drizzle ORM", "Neon/Postgres", "Zustand"],
     capabilities: ["Consumer UX", "State modeling", "Content workflows", "Full-stack product delivery"],
     links: [
+      { label: "Live demo", href: "https://bhasha-xi.vercel.app", kind: "demo" },
       { label: "GitHub", href: "https://github.com/Anuragh33/Bhasha", kind: "repo" },
       { label: "Case study only", href: "/contact", kind: "case-study" }
     ],
@@ -287,6 +291,7 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "TRPC", "Inngest", "OpenAI", "Stream", "Drizzle ORM"],
     capabilities: ["Platform architecture", "AI-native product systems", "Realtime collaboration", "Workflow processing"],
     links: [
+      { label: "Live demo", href: "https://idea-ai-eight.vercel.app/sign-in", kind: "demo" },
       { label: "GitHub", href: "https://github.com/Anuragh33/Idea", kind: "repo" },
       { label: "Case study only", href: "/contact", kind: "case-study" }
     ],

@@ -14,7 +14,9 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const reducedMotion = useReducedMotion();
-  const ref = useRef<HTMLAnchorElement | null>(null);
+  const ref = useRef<HTMLElement | null>(null);
+  const demoLink = project.links.find((link) => link.kind === "demo");
+  const href = demoLink?.href ?? `/work/${project.slug}`;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -23,11 +25,11 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
 
   return (
     <motion.div style={{ y }} className={priority ? "lg:col-span-2" : undefined}>
-      <Link
+      <article
         ref={ref}
-        href={`/work/${project.slug}`}
-        className="glass-panel group block h-full overflow-hidden p-6 transition hover:scale-[1.01]"
+        className="glass-panel group relative h-full overflow-hidden p-6 transition hover:scale-[1.01]"
       >
+        <Link href={href} className="absolute inset-0 z-10" aria-label={`Open ${project.title}`} />
         <div
           className={`liquid-glass relative rounded-[1.6rem] bg-gradient-to-br ${project.accent} p-6`}
         >
@@ -37,12 +39,21 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
               <p className="font-mono text-xs uppercase tracking-[0.28em] text-slate-300">{project.status}</p>
               <h3 className="mt-3 font-display text-3xl text-white">{project.title}</h3>
             </div>
-            <span className="liquid-glass rounded-full p-3 text-white transition group-hover:translate-x-1 group-hover:-translate-y-1">
+            <Link
+              href={href}
+              className="liquid-glass relative z-20 rounded-full p-3 text-white transition hover:text-[#5ed29c] group-hover:translate-x-1 group-hover:-translate-y-1"
+              aria-label={demoLink ? `Open ${project.title} live demo` : `Open ${project.title} case study`}
+            >
               <ArrowUpRight className="h-4 w-4" />
-            </span>
+            </Link>
           </div>
           <p className="relative mt-4 max-w-2xl text-base leading-7 text-slate-200">{project.tagline}</p>
           <div className="relative mt-6 flex flex-wrap gap-2">
+            {demoLink ? (
+              <span className="liquid-glass rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#5ed29c]">
+                Open live demo
+              </span>
+            ) : null}
             {project.capabilities.slice(0, 3).map((capability) => (
               <span key={capability} className="liquid-glass rounded-full px-3 py-1 text-xs text-slate-200">
                 {capability}
@@ -63,7 +74,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             </div>
           </div>
         </div>
-      </Link>
+      </article>
     </motion.div>
   );
 }
