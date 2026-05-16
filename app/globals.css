@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(94, 210, 156, 0.16), transparent 30rem),
+    linear-gradient(180deg, #050807 0%, #070b0a 38%, #030504 100%);
+  color: #f8fafc;
+  font-family: "Inter", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(142, 249, 243, 0.22);
+  color: #f8fafc;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  outline-color: rgba(142, 249, 243, 0.7);
+}
+
+.content-grid {
+  @apply mx-auto max-w-7xl px-6 lg:px-10;
+}
+
+.section-space {
+  @apply py-16 sm:py-20;
+}
+
+.prose-invert p {
+  @apply text-base leading-8 text-slate-300;
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass-panel {
+  @apply liquid-glass;
+  border-radius: 2rem;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 24px 90px rgba(0, 0, 0, 0.38);
+}
+
+.glass-panel-strong {
+  @apply liquid-glass;
+  border-radius: 2.4rem;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(94, 210, 156, 0.12), transparent 34%),
+    rgba(255, 255, 255, 0.012);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 30px 120px rgba(0, 0, 0, 0.45);
+}
+
+.glass-field {
+  @apply liquid-glass;
+  border-radius: 1rem;
+  background: rgba(7, 11, 10, 0.42);
+}
