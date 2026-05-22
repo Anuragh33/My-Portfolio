@@ -174,8 +174,9 @@ export const projects: Project[] = [
     stack: ["TypeScript", "Next.js", "Modern UI systems", "AI-native workflows"],
     capabilities: ["Product direction", "Interface systems", "Interactive design", "AI product thinking"],
     links: [
+      { label: "Live demo", href: "https://oliver-site-psi.vercel.app", kind: "demo" },
       { label: "GitHub", href: "https://github.com/Anuragh33/Oliver", kind: "repo" },
-      { label: "Private source / case study only", href: "/contact", kind: "case-study" }
+      { label: "Case study", href: "/work/oliver", kind: "case-study" }
     ],
     featured: true,
     order: 1,

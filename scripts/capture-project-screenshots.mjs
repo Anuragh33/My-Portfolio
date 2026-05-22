@@ -10,11 +10,7 @@ const targets = [
   { slug: "work-search", url: "https://worksearch-33ha.vercel.app/sign-in", waitMs: 4000 },
   { slug: "bhasha", url: "https://bhasha-xi.vercel.app", waitMs: 4000 },
   { slug: "idea-ai", url: "https://idea-ai-eight.vercel.app/sign-in", waitMs: 4000 },
-  {
-    slug: "oliver",
-    url: `file://${path.join(__dirname, "..", "public", "projects", "oliver.svg")}`,
-    waitMs: 500
-  }
+  { slug: "oliver", url: "https://oliver-site-psi.vercel.app", waitMs: 5000 }
 ];
 
 async function capture() {

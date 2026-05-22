@@ -27,7 +27,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
     <motion.div style={{ y }} className={priority ? "lg:col-span-2" : undefined}>
       <article ref={ref} className="glass-panel group h-full overflow-hidden p-6 transition hover:scale-[1.01]">
         <Link href={caseStudyHref} className="block">
-          <div className="relative aspect-video overflow-hidden rounded-[1.4rem]">
+          <div className="relative isolate aspect-video overflow-hidden rounded-[1.4rem]">
             <Image
               src={project.heroImage}
               alt={`${project.title} preview`}
@@ -36,10 +36,13 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
               sizes="(max-width: 768px) 100vw, 50vw"
               priority={priority}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070b0a]/80 via-transparent to-transparent" />
-            <div className="absolute right-4 top-4 liquid-glass rounded-full p-3 text-white">
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </div>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070b0a]/70 via-[#070b0a]/10 to-transparent" />
+            <span
+              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-[#070b0a]/60 text-white shadow-lg backdrop-blur-md transition group-hover:border-accent/50 group-hover:text-accent"
+              aria-hidden="true"
+            >
+              <ArrowUpRight className="h-4 w-4 shrink-0" />
+            </span>
           </div>
 
           <div className={`liquid-glass relative mt-5 rounded-[1.6rem] bg-gradient-to-br ${project.accent} p-6`}>
