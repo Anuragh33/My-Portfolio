@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   color-scheme: dark;
+  --accent: #5ed29c;
+  --surface: #070b0a;
+  --glass-blur: 4px;
 }
 
 html {
@@ -16,10 +17,33 @@ body {
   min-height: 100vh;
   background:
     radial-gradient(circle at 50% -10%, rgba(94, 210, 156, 0.16), transparent 30rem),
-    linear-gradient(180deg, #050807 0%, #070b0a 38%, #030504 100%);
+    linear-gradient(180deg, #050807 0%, var(--surface) 38%, #030504 100%);
   color: #f8fafc;
-  font-family: "Inter", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-inter), "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-mesh {
+    animation: none !important;
+  }
+
+  [data-hero-item] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 ::selection {
@@ -35,6 +59,23 @@ textarea {
   outline-color: rgba(142, 249, 243, 0.7);
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--accent);
+  color: #070b0a;
+  font-weight: 700;
+  border-radius: 9999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
 .content-grid {
   @apply mx-auto max-w-7xl px-6 lg:px-10;
 }
@@ -47,11 +88,31 @@ textarea {
   @apply text-base leading-8 text-slate-300;
 }
 
+.hero-mesh {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(94, 210, 156, 0.22), transparent 42%),
+    radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.12), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(18, 63, 52, 0.35), transparent 45%),
+    #050807;
+  animation: heroMesh 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroMesh {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: scale(1);
+  }
+  100% {
+    filter: hue-rotate(8deg);
+    transform: scale(1.03);
+  }
+}
+
 .liquid-glass {
   background: rgba(255, 255, 255, 0.01);
   background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   border: none;
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
   position: relative;

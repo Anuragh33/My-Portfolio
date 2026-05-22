@@ -2,42 +2,67 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { SocialLinks } from "@/components/social-links";
+import { siteMeta } from "@/lib/data";
 
 const navItems = [
-  { label: "EXPERIENCE", href: "/experience" },
-  { label: "WORK", href: "/work" },
-  { label: "BUILD LOG", href: "/build-log" },
-  { label: "ABOUT", href: "/about" },
-  { label: "RESUME", href: "/Anuragh_Resume.pdf" }
+  { label: "Experience", href: "/experience" },
+  { label: "Work", href: "/work" },
+  { label: "Build Log", href: "/build-log" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" }
 ];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="absolute left-0 right-0 top-0 z-50 px-6 py-6 lg:px-10 lg:py-8">
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-white/10 bg-[#070b0a]/85 backdrop-blur-xl" : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
         <Link href="/" className="text-[17px] font-semibold tracking-tight text-white">
           Anuragh
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex" aria-label="Main navigation">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              className="font-['Inter'] text-[16px] font-medium text-white transition hover:text-[#5ed29c]"
+              className="text-[15px] font-medium text-white transition hover:text-accent"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
+          <SocialLinks className="hidden lg:flex" />
+          <a
+            href={siteMeta.resumePath}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-accent px-5 py-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[#070b0a] transition hover:scale-[1.03]"
+          >
+            Resume
+          </a>
         </nav>
 
         <button
           type="button"
           className="liquid-glass rounded-full p-3 text-white md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
           onClick={() => setOpen((current) => !current)}
         >
           {open ? <X size={21} /> : <Menu size={21} />}
@@ -47,15 +72,25 @@ export function SiteHeader() {
       {open ? (
         <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-[#070b0a]/95 px-6 backdrop-blur-xl md:hidden">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              className="font-['Inter'] text-2xl font-semibold text-white transition hover:text-[#5ed29c]"
+              className="text-2xl font-semibold text-white transition hover:text-accent"
               onClick={() => setOpen(false)}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
+          <SocialLinks />
+          <a
+            href={siteMeta.resumePath}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-accent px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#070b0a]"
+            onClick={() => setOpen(false)}
+          >
+            Resume
+          </a>
         </div>
       ) : null}
     </header>

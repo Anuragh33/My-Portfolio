@@ -4,6 +4,11 @@ export type ProjectLink = {
   kind: "demo" | "repo" | "case-study";
 };
 
+export type ProjectMetric = {
+  label: string;
+  value: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -27,6 +32,10 @@ export type Project = {
   featured: boolean;
   order: number;
   accent: string;
+  heroImage: string;
+  metrics: ProjectMetric[];
+  impactBullets: string[];
+  filterTags: string[];
 };
 
 export type BuildLogEntry = {
@@ -44,6 +53,9 @@ export const siteMeta = {
   email: "anuraghragidimilli@icloud.com",
   github: "https://github.com/Anuragh33",
   linkedin: "https://www.linkedin.com/in/anuraghragidimilli/",
+  url: "https://anuragh-portfolio.vercel.app",
+  resumePath: "/Anuragh_Resume.pdf",
+  availability: "Open to full-time software engineering roles",
   hero:
     "Full-Stack AI Developer with 3.5+ years of experience building intelligent products, scalable systems, and applied AI workflows end to end.",
   subhero:
@@ -52,12 +64,24 @@ export const siteMeta = {
   personality: ["Product builder", "Systems thinker", "Curious experimentalist"]
 };
 
+export const careerBridge =
+  "Between Wipro and UnitedHealth Group, I completed my MS in Computer Science and focused on independent product builds, AI experiments, and strengthening full-stack delivery before joining enterprise healthcare engineering.";
+
 export const proofPoints = [
   "3.5+ years shipping production software",
   "Enterprise AI and agentic workflows",
   "Next.js, TypeScript, Python, FastAPI",
   "Healthcare systems, product engineering, and automation"
 ];
+
+export const workFilters = [
+  { id: "all", label: "All work" },
+  { id: "ai", label: "AI systems" },
+  { id: "full-stack", label: "Full-stack" },
+  { id: "flagship", label: "Flagship" }
+] as const;
+
+export type WorkFilterId = (typeof workFilters)[number]["id"];
 
 export const capabilities = [
   {
@@ -154,7 +178,18 @@ export const projects: Project[] = [
     ],
     featured: true,
     order: 1,
-    accent: "from-[#5ed29c]/30 via-[#123f34]/20 to-transparent"
+    accent: "from-[#5ed29c]/30 via-[#123f34]/20 to-transparent",
+    heroImage: "/projects/oliver.png",
+    metrics: [
+      { label: "Status", value: "Active build" },
+      { label: "Focus", value: "AI-native UX" }
+    ],
+    impactBullets: [
+      "Defines my product direction for AI-native workflow tools",
+      "Tests interaction language before the surface area grows too large",
+      "Balances experimentation with architecture that can harden over time"
+    ],
+    filterTags: ["flagship", "ai", "full-stack"]
   },
   {
     slug: "work-search",
@@ -201,7 +236,18 @@ export const projects: Project[] = [
     ],
     featured: true,
     order: 2,
-    accent: "from-cyan-300/25 via-[#5ed29c]/10 to-transparent"
+    accent: "from-cyan-300/25 via-[#5ed29c]/10 to-transparent",
+    heroImage: "/projects/work-search.png",
+    metrics: [
+      { label: "Pipeline", value: "Multi-source jobs" },
+      { label: "AI layer", value: "Resume + matching" }
+    ],
+    impactBullets: [
+      "Unifies job discovery, resume parsing, and matching in one workflow",
+      "Demonstrates orchestration across Next.js, FastAPI, and scheduled automation",
+      "Uses AI for parsing and decisions—not as a decorative chat layer"
+    ],
+    filterTags: ["ai", "full-stack"]
   },
   {
     slug: "bhasha",
@@ -249,7 +295,18 @@ export const projects: Project[] = [
     ],
     featured: true,
     order: 3,
-    accent: "from-[#5ed29c]/25 via-lime-300/10 to-transparent"
+    accent: "from-[#5ed29c]/25 via-lime-300/10 to-transparent",
+    heroImage: "/projects/bhasha.png",
+    metrics: [
+      { label: "Learner UX", value: "Progress + quests" },
+      { label: "Stack", value: "Clerk + Drizzle" }
+    ],
+    impactBullets: [
+      "Shipped a full learning loop with lessons, quizzes, and progression",
+      "Built admin workflows so content can scale beyond a single language",
+      "Proves consumer UX craft alongside enterprise AI depth"
+    ],
+    filterTags: ["full-stack"]
   },
   {
     slug: "idea-ai",
@@ -297,7 +354,18 @@ export const projects: Project[] = [
     ],
     featured: true,
     order: 4,
-    accent: "from-emerald-300/20 via-[#5ed29c]/10 to-transparent"
+    accent: "from-emerald-300/20 via-[#5ed29c]/10 to-transparent",
+    heroImage: "/projects/idea-ai.png",
+    metrics: [
+      { label: "Platform", value: "Agents + meetings" },
+      { label: "Realtime", value: "Stream + Inngest" }
+    ],
+    impactBullets: [
+      "Reusable foundation for AI collaboration products",
+      "Combines auth, billing, agents, and realtime in one architecture",
+      "Shows platform thinking—not one-off feature delivery"
+    ],
+    filterTags: ["ai", "full-stack"]
   }
 ];
 
@@ -353,4 +421,12 @@ export function getProject(slug: string) {
 
 export function getBuildLogEntry(slug: string) {
   return buildLog.find((entry) => entry.slug === slug);
+}
+
+export function projectMatchesFilter(project: Project, filter: WorkFilterId) {
+  if (filter === "all") {
+    return true;
+  }
+
+  return project.filterTags.includes(filter);
 }

@@ -6,11 +6,12 @@ The site is designed to feel premium and recruiter-friendly while still showing 
 
 ## Highlights
 
-- Cinematic full-viewport hero with HLS video background
+- Recruiter-first home flow with proof strip, resume CTAs, and reordered sections
+- Animated gradient hero with GSAP (no heavy video on first load)
 - Unified dark glass visual system across all pages
 - Dedicated pages for experience, work, build log, about, and contact
-- Featured case studies for Oliver, Work Search, Bhasha, and Idea.AI
-- Recruiter-focused proof points, resume link, and contact flow
+- Featured case studies with impact summaries and project visuals
+- Resend-powered contact form, sitemap, JSON-LD, and Vercel Analytics
 - Responsive layout with reduced-motion friendly reveal animations
 
 ## Tech Stack
@@ -18,9 +19,9 @@ The site is designed to feel premium and recruiter-friendly while still showing 
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Framer Motion
-- GSAP-ready visual direction
-- HLS video via `hls.js`
+- Framer Motion + GSAP (hero)
+- Resend (contact form)
+- Vercel Analytics
 - Lucide React icons
 - Vercel-ready deployment
 
@@ -84,9 +85,36 @@ This includes:
 - Capability areas
 - Proof points
 
+Replace placeholder project visuals by updating `heroImage` in `lib/data.ts` and adding PNG/WebP files under `public/projects/` (or wire remote URLs in `next.config.ts` `images.remotePatterns`).
+
+## Environment
+
+Copy `.env.example` to `.env.local` and set:
+
+- `RESEND_API_KEY` — enables contact form email delivery
+- `CONTACT_TO_EMAIL` — inbox for form submissions (defaults to site email)
+- `CONTACT_FROM_EMAIL` — verified Resend sender (use `onboarding@resend.dev` for testing)
+
+## Project screenshots
+
+Live demo screenshots are stored under `public/projects/*.png`. Regenerate after UI changes:
+
+```bash
+npm run capture-screenshots
+```
+
+Requires Playwright (installed as a dev dependency).
+
 ## Deployment
 
-The project is ready to deploy on Vercel.
+The project is ready to deploy on Vercel and is linked to GitHub: `https://github.com/Anuragh33/My-Portfolio.git`.
+
+1. Push `main` to GitHub (Vercel auto-deploys if the repo is connected).
+2. In the Vercel project → **Settings → Environment Variables**, add:
+   - `RESEND_API_KEY`
+   - `CONTACT_TO_EMAIL` (optional)
+   - `CONTACT_FROM_EMAIL` (optional; use a verified domain in production)
+3. Confirm the production URL matches `siteMeta.url` in `lib/data.ts` (currently `https://anuragh-portfolio.vercel.app`).
 
 Recommended settings:
 

@@ -1,5 +1,7 @@
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { careerBridge } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
 
 const principles = [
   "Build from real user friction, not novelty for novelty's sake.",
@@ -7,6 +9,13 @@ const principles = [
   "Make systems understandable enough that trust can grow around them.",
   "Design interfaces that feel authored, responsive, and clear under pressure."
 ];
+
+export const metadata = createPageMetadata({
+  title: "About | Anuragh Ragidimilli",
+  description:
+    "Full-stack AI developer combining enterprise systems rigor with independent product building and interface craft.",
+  path: "/about"
+});
 
 export default function AboutPage() {
   return (
@@ -29,15 +38,16 @@ export default function AboutPage() {
               <p>
                 Outside that context, I build products that let me move faster and think more openly. That side of my work is where I push harder on interaction design, product personality, and sharper user experience decisions.
               </p>
+              <p>{careerBridge}</p>
               <p>
-                Together, those two sides shape how I operate: grounded enough to ship real systems, curious enough to keep making them feel new.
+                Together, those sides shape how I operate: grounded enough to ship real systems, curious enough to keep making them feel new.
               </p>
             </div>
           </div>
         </Reveal>
         <Reveal delay={0.08}>
           <div className="glass-panel p-6">
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#5ed29c]">Operating principles</p>
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">Operating principles</p>
             <ul className="mt-5 space-y-4 text-base leading-8 text-slate-300">
               {principles.map((principle) => (
                 <li key={principle}>{principle}</li>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
+import { ProjectImpact } from "@/components/project-impact";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { getProject, projects } from "@/lib/data";
@@ -23,7 +25,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${project.title} | Anuragh Ragidimilli`,
-    description: project.summary
+    description: project.summary,
+    openGraph: {
+      images: [{ url: project.heroImage, alt: `${project.title} preview` }]
+    }
   };
 }
 
@@ -38,9 +43,19 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <div className="content-grid section-space">
       <Reveal>
-        <div className={`glass-panel-strong bg-gradient-to-br ${project.accent} p-8`}>
+        <div className={`glass-panel-strong overflow-hidden bg-gradient-to-br ${project.accent} p-8`}>
+          <div className="relative mb-8 aspect-video overflow-hidden rounded-[1.6rem]">
+            <Image
+              src={project.heroImage}
+              alt={`${project.title} preview`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              priority
+            />
+          </div>
           <p className="font-mono text-xs uppercase tracking-[0.32em] text-slate-300">{project.status}</p>
-          <h1 className="mt-5 max-w-4xl font-display text-5xl text-white sm:text-6xl">{project.title}</h1>
+          <h1 className="mt-5 max-w-4xl font-serif text-5xl text-white sm:text-6xl">{project.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100">{project.tagline}</p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             <div className="liquid-glass rounded-[1.4rem] p-4">
@@ -59,6 +74,8 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       </Reveal>
 
+      <ProjectImpact project={project} />
+
       <div className="mt-12 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         <Reveal>
           <div className="space-y-10">
@@ -71,11 +88,11 @@ export default async function ProjectPage({ params }: PageProps) {
             </section>
 
             <section className="glass-panel p-6 prose-invert">
-              <h2 className="font-display text-3xl text-white">Problem / opportunity</h2>
+              <h2 className="font-serif text-3xl text-white">Problem / opportunity</h2>
               <p className="mt-5">{project.problem}</p>
-              <h2 className="mt-8 font-display text-3xl text-white">What I built</h2>
+              <h2 className="mt-8 font-serif text-3xl text-white">What I built</h2>
               <p className="mt-5">{project.solution}</p>
-              <h2 className="mt-8 font-display text-3xl text-white">Core experience</h2>
+              <h2 className="mt-8 font-serif text-3xl text-white">Core experience</h2>
               <ul className="mt-5 space-y-3 text-base leading-8 text-slate-300">
                 {project.coreExperience.map((item) => (
                   <li key={item}>{item}</li>
@@ -84,24 +101,24 @@ export default async function ProjectPage({ params }: PageProps) {
             </section>
 
             <section className="glass-panel p-6 prose-invert">
-              <h2 className="font-display text-3xl text-white">Architecture and stack</h2>
+              <h2 className="font-serif text-3xl text-white">Architecture and stack</h2>
               <ul className="mt-5 space-y-3 text-base leading-8 text-slate-300">
                 {project.architecture.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <h2 className="mt-8 font-display text-3xl text-white">AI support and systems layer</h2>
+              <h2 className="mt-8 font-serif text-3xl text-white">AI support and systems layer</h2>
               <p className="mt-5">{project.aiInvolvement}</p>
             </section>
 
             <section className="glass-panel p-6 prose-invert">
-              <h2 className="font-display text-3xl text-white">Challenges and decisions</h2>
+              <h2 className="font-serif text-3xl text-white">Challenges and decisions</h2>
               <ul className="mt-5 space-y-3 text-base leading-8 text-slate-300">
                 {project.challenges.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <h2 className="mt-8 font-display text-3xl text-white">Outcome / current status</h2>
+              <h2 className="mt-8 font-serif text-3xl text-white">Outcome / current status</h2>
               <p className="mt-5">{project.outcome}</p>
             </section>
           </div>
@@ -138,8 +155,8 @@ export default async function ProjectPage({ params }: PageProps) {
                     key={link.label}
                     href={link.href}
                     target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="liquid-glass block rounded-2xl px-4 py-3 text-sm text-slate-200 transition hover:text-[#5ed29c]"
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="liquid-glass block rounded-2xl px-4 py-3 text-sm text-slate-200 transition hover:text-accent"
                   >
                     {link.label}
                   </a>

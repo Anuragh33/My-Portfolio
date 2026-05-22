@@ -15,7 +15,7 @@ export function CapabilityGrid() {
             key={capability.title}
             className="glass-panel p-6"
           >
-            <div className="liquid-glass flex h-11 w-11 items-center justify-center rounded-2xl text-[#5ed29c]">
+            <div className="liquid-glass flex h-11 w-11 items-center justify-center rounded-2xl text-accent">
               <Icon className="h-5 w-5" />
             </div>
             <h3 className="mt-5 text-xl text-white">{capability.title}</h3>

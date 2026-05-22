@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -15,8 +16,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const reducedMotion = useReducedMotion();
   const ref = useRef<HTMLElement | null>(null);
-  const demoLink = project.links.find((link) => link.kind === "demo");
-  const href = demoLink?.href ?? `/work/${project.slug}`;
+  const caseStudyHref = `/work/${project.slug}`;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -25,55 +25,38 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
 
   return (
     <motion.div style={{ y }} className={priority ? "lg:col-span-2" : undefined}>
-      <article
-        ref={ref}
-        className="glass-panel group relative h-full overflow-hidden p-6 transition hover:scale-[1.01]"
-      >
-        <Link href={href} className="absolute inset-0 z-10" aria-label={`Open ${project.title}`} />
-        <div
-          className={`liquid-glass relative rounded-[1.6rem] bg-gradient-to-br ${project.accent} p-6`}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_40%)]" />
-          <div className="relative flex items-start justify-between gap-4">
-            <div>
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-slate-300">{project.status}</p>
-              <h3 className="mt-3 font-display text-3xl text-white">{project.title}</h3>
-            </div>
-            <Link
-              href={href}
-              className="liquid-glass relative z-20 rounded-full p-3 text-white transition hover:text-[#5ed29c] group-hover:translate-x-1 group-hover:-translate-y-1"
-              aria-label={demoLink ? `Open ${project.title} live demo` : `Open ${project.title} case study`}
-            >
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <p className="relative mt-4 max-w-2xl text-base leading-7 text-slate-200">{project.tagline}</p>
-          <div className="relative mt-6 flex flex-wrap gap-2">
-            {demoLink ? (
-              <span className="liquid-glass rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#5ed29c]">
-                Open live demo
-              </span>
-            ) : null}
-            {project.capabilities.slice(0, 3).map((capability) => (
-              <span key={capability} className="liquid-glass rounded-full px-3 py-1 text-xs text-slate-200">
-                {capability}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="mt-6 grid gap-6 md:grid-cols-[1.3fr_0.7fr]">
-          <p className="text-base leading-7 text-slate-300">{project.summary}</p>
-          <div className="liquid-glass space-y-3 rounded-[1.5rem] p-4">
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-slate-500">Timeline</p>
-              <p className="mt-1 text-sm text-slate-200">{project.timeline}</p>
-            </div>
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-slate-500">Stack</p>
-              <p className="mt-1 text-sm text-slate-200">{project.stack.slice(0, 4).join(" · ")}</p>
+      <article ref={ref} className="glass-panel group h-full overflow-hidden p-6 transition hover:scale-[1.01]">
+        <Link href={caseStudyHref} className="block">
+          <div className="relative aspect-video overflow-hidden rounded-[1.4rem]">
+            <Image
+              src={project.heroImage}
+              alt={`${project.title} preview`}
+              fill
+              className="object-cover transition duration-500 group-hover:scale-[1.02]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={priority}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070b0a]/80 via-transparent to-transparent" />
+            <div className="absolute right-4 top-4 liquid-glass rounded-full p-3 text-white">
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </div>
           </div>
-        </div>
+
+          <div className={`liquid-glass relative mt-5 rounded-[1.6rem] bg-gradient-to-br ${project.accent} p-6`}>
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-slate-300">{project.status}</p>
+            <h3 className="mt-3 font-serif text-3xl text-white">{project.title}</h3>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200">{project.tagline}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {project.metrics.map((metric) => (
+                <span key={metric.label} className="liquid-glass rounded-full px-3 py-1 text-xs text-slate-200">
+                  <span className="text-accent">{metric.value}</span> · {metric.label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-5 text-base leading-7 text-slate-300">{project.summary}</p>
+        </Link>
       </article>
     </motion.div>
   );

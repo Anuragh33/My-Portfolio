@@ -1,7 +1,15 @@
 import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { SocialLinks } from "@/components/social-links";
 import { siteMeta } from "@/lib/data";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Contact | Anuragh Ragidimilli",
+  description: "Reach out for recruiting, client work, or collaboration on full-stack AI products.",
+  path: "/contact"
+});
 
 export default function ContactPage() {
   return (
@@ -16,21 +24,26 @@ export default function ContactPage() {
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
         <Reveal>
           <div className="glass-panel p-6">
-            <p className="font-['Inter'] text-3xl font-extrabold text-white">{siteMeta.name}</p>
+            <p className="text-3xl font-extrabold text-white">{siteMeta.name}</p>
             <p className="mt-4 text-base leading-8 text-slate-300">{siteMeta.subhero}</p>
+            <p className="mt-4 text-sm text-accent">{siteMeta.availability}</p>
             <div className="mt-8 space-y-4 text-sm text-slate-400">
               <p>{siteMeta.location}</p>
-              <p>{siteMeta.email}</p>
-              <p>GitHub: Anuragh33</p>
-              <a
-                href="/Anuragh_Resume.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex text-slate-200 underline decoration-white/20 underline-offset-4"
-              >
-                View resume
-              </a>
+              <p>
+                <a href={`mailto:${siteMeta.email}`} className="text-slate-200 transition hover:text-accent">
+                  {siteMeta.email}
+                </a>
+              </p>
             </div>
+            <SocialLinks className="mt-6" showEmail />
+            <a
+              href={siteMeta.resumePath}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex text-sm text-slate-200 underline decoration-white/20 underline-offset-4 transition hover:text-accent"
+            >
+              View resume
+            </a>
           </div>
         </Reveal>
         <Reveal delay={0.08}>

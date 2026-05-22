@@ -1,11 +1,16 @@
-import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { projects } from "@/lib/data";
+import { WorkGrid } from "@/components/work-grid";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Work | Anuragh Ragidimilli",
+  description:
+    "Featured case studies in AI systems, full-stack product engineering, consumer UX, and platform architecture.",
+  path: "/work"
+});
 
 export default function WorkPage() {
-  const sorted = [...projects].sort((a, b) => a.order - b.order);
-
   return (
     <div className="content-grid section-space">
       <Reveal>
@@ -15,13 +20,7 @@ export default function WorkPage() {
           description="These are the products and platforms that best reflect how I think about building useful software."
         />
       </Reveal>
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        {sorted.map((project, index) => (
-          <Reveal key={project.slug} delay={index * 0.05}>
-            <ProjectCard project={project} />
-          </Reveal>
-        ))}
-      </div>
+      <WorkGrid />
     </div>
   );
 }
