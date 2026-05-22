@@ -51,6 +51,8 @@ export const siteMeta = {
   name: "Anuragh Ragidimilli",
   title: "Full-Stack AI Developer",
   email: "anuraghragidimilli@icloud.com",
+  /** Resend test mode delivers only here until a domain is verified at resend.com/domains */
+  resendDeliveryEmail: "n374r654@wichita.edu",
   github: "https://github.com/Anuragh33",
   linkedin: "https://www.linkedin.com/in/anuraghragidimilli/",
   url: "https://anuragh-portfolio.vercel.app",

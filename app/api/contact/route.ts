@@ -58,7 +58,8 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL ?? siteMeta.email;
+  const toEmail =
+    process.env.CONTACT_TO_EMAIL ?? siteMeta.resendDeliveryEmail ?? siteMeta.email;
   const fromEmail = resolveFromEmail();
 
   if (!apiKey) {
