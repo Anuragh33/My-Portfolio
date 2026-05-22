@@ -4,7 +4,7 @@ export function RecruiterStrip() {
   return (
     <section
       aria-label="Recruiter overview"
-      className="glass-panel-strong relative z-30 -mt-6 mb-4 p-6 lg:p-8"
+      className="glass-panel-strong mb-8 p-6 lg:p-8"
     >
       <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">{siteMeta.availability}</p>
       <p className="mt-3 text-lg font-semibold text-white">{siteMeta.title}</p>

@@ -23,7 +23,7 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <div className="content-grid">
+      <div className="content-grid pt-14 lg:pt-20">
         <RecruiterStrip />
 
         <section className="section-space" id="projects">

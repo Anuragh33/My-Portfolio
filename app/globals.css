@@ -90,21 +90,22 @@ textarea {
 
 .hero-mesh {
   background:
-    radial-gradient(circle at 20% 20%, rgba(94, 210, 156, 0.22), transparent 42%),
-    radial-gradient(circle at 80% 10%, rgba(34, 211, 238, 0.12), transparent 35%),
-    radial-gradient(circle at 50% 80%, rgba(18, 63, 52, 0.35), transparent 45%),
+    radial-gradient(ellipse 80% 60% at 15% 25%, rgba(94, 210, 156, 0.28), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(34, 211, 238, 0.16), transparent 45%),
+    radial-gradient(ellipse 60% 55% at 55% 85%, rgba(18, 63, 52, 0.45), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(94, 210, 156, 0.06), transparent 70%),
     #050807;
-  animation: heroMesh 14s ease-in-out infinite alternate;
+  animation: heroMesh 16s ease-in-out infinite alternate;
 }
 
 @keyframes heroMesh {
   0% {
-    filter: hue-rotate(0deg);
-    transform: scale(1);
+    filter: hue-rotate(0deg) brightness(1);
+    transform: scale(1) translateY(0);
   }
   100% {
-    filter: hue-rotate(8deg);
-    transform: scale(1.03);
+    filter: hue-rotate(10deg) brightness(1.05);
+    transform: scale(1.04) translateY(-1%);
   }
 }
 
