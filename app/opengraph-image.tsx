@@ -48,7 +48,7 @@ export default function OpenGraphImage() {
             {siteMeta.hero}
           </div>
         </div>
-        <div style={{ display: "flex", fontSize: 20, color: "#94a3b8" }}>{siteMeta.location}</div>
+        <div style={{ display: "flex", fontSize: 20, color: "#94a3b8" }}>{siteMeta.url.replace("https://", "")}</div>
       </div>
     ),
     { ...size }

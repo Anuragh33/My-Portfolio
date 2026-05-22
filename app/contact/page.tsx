@@ -28,7 +28,6 @@ export default function ContactPage() {
             <p className="mt-4 text-base leading-8 text-slate-300">{siteMeta.subhero}</p>
             <p className="mt-4 text-sm text-accent">{siteMeta.availability}</p>
             <div className="mt-8 space-y-4 text-sm text-slate-400">
-              <p>{siteMeta.location}</p>
               <p>
                 <a href={`mailto:${siteMeta.email}`} className="text-slate-200 transition hover:text-accent">
                   {siteMeta.email}

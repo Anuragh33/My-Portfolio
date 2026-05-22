@@ -10,12 +10,6 @@ export function JsonLd() {
     jobTitle: siteMeta.title,
     email: siteMeta.email,
     url: siteMeta.url,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Wichita",
-      addressRegion: "KS",
-      addressCountry: "US"
-    },
     sameAs: [siteMeta.github, siteMeta.linkedin],
     knowsAbout: [
       "Next.js",

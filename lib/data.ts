@@ -62,7 +62,6 @@ export const siteMeta = {
     "Full-Stack AI Developer with 3.5+ years of experience building intelligent products, scalable systems, and applied AI workflows end to end.",
   subhero:
     "I build production-grade full-stack products and embed AI where it creates real leverage.",
-  location: "Wichita, Kansas",
   personality: ["Product builder", "Systems thinker", "Curious experimentalist"]
 };
 

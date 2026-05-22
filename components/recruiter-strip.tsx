@@ -11,10 +11,7 @@ export function RecruiterStrip() {
     >
       <div>
         <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">{siteMeta.availability}</p>
-        <p className="mt-3 text-lg text-white">
-          <span className="font-semibold">{siteMeta.title}</span>
-          <span className="text-slate-400"> · {siteMeta.location}</span>
-        </p>
+        <p className="mt-3 text-lg font-semibold text-white">{siteMeta.title}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           {proofPoints.map((point) => (
             <span key={point} className="liquid-glass rounded-full px-3 py-1.5 text-xs text-slate-200">
