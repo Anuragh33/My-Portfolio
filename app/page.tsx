@@ -12,7 +12,7 @@ import { buildLog, careerBridge, experiences, getFeaturedProjects, siteMeta } fr
 const outcomes = [
   ["3.5+", "years production experience"],
   ["200+", "bots supported through Bot Center"],
-  ["4", "featured product case studies"],
+  ["4", "featured projects shipped"],
   ["AI", "workflows built for real leverage"]
 ];
 
@@ -31,7 +31,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Selected work"
               title="Four projects that show how I think, build, and scale."
-              description="Each case study has a different job: flagship product ambition, AI workflow systems, consumer UX, and platform architecture."
+              description="Four products I built end to end—a macOS meeting assistant, an AI job search platform, a language-learning app, and an AI collaboration starter."
             />
           </Reveal>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -175,7 +175,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0">
                 <Link
                   href="/contact"
-                  className="rounded-full bg-accent px-7 py-3 text-center text-sm font-bold uppercase tracking-[0.14em] text-[#070b0a] transition hover:scale-[1.03]"
+                  className="rounded-full bg-accent px-7 py-3 text-center text-sm font-bold uppercase tracking-[0.14em] text-onAccent transition hover:scale-[1.03]"
                 >
                   Contact me
                 </Link>

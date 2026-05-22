@@ -17,7 +17,7 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "linear-gradient(135deg, #050807 0%, #070b0a 45%, #123f34 100%)",
+          background: "linear-gradient(135deg, #050a14 0%, #0a0f1a 45%, #1e3a5f 100%)",
           color: "#f8fafc",
           fontFamily: "system-ui, sans-serif"
         }}
@@ -28,7 +28,7 @@ export default function OpenGraphImage() {
             fontSize: 22,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#5ed29c"
+            color: "#60a5fa"
           }}
         >
           Full-Stack AI Developer

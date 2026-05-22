@@ -7,7 +7,7 @@ type ProjectImpactProps = {
 export function ProjectImpact({ project }: ProjectImpactProps) {
   const demoLink = project.links.find((link) => link.kind === "demo");
   const repoLink = project.links.find((link) => link.kind === "repo");
-  const caseStudyLink = `/work/${project.slug}`;
+  const detailsLink = `/work/${project.slug}`;
 
   return (
     <section className="glass-panel mt-8 p-6 lg:p-8" aria-label="Impact at a glance">
@@ -33,7 +33,7 @@ export function ProjectImpact({ project }: ProjectImpactProps) {
             href={demoLink.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-accent px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[#070b0a] transition hover:scale-[1.03]"
+            className="rounded-full bg-accent px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-onAccent transition hover:scale-[1.03]"
           >
             Live demo
           </a>
@@ -49,10 +49,10 @@ export function ProjectImpact({ project }: ProjectImpactProps) {
           </a>
         ) : null}
         <a
-          href={caseStudyLink}
+          href={detailsLink}
           className="liquid-glass rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:text-accent"
         >
-          Full case study
+          Project details
         </a>
       </div>
     </section>

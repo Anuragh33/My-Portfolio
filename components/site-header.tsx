@@ -29,7 +29,7 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-white/10 bg-[#070b0a]/85 backdrop-blur-xl" : "bg-transparent"
+        scrolled ? "border-b border-white/10 bg-surface/85 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
@@ -52,7 +52,7 @@ export function SiteHeader() {
             href={siteMeta.resumePath}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-accent px-5 py-2 text-[12px] font-bold uppercase tracking-[0.14em] text-[#070b0a] transition hover:scale-[1.03]"
+            className="rounded-full bg-accent px-5 py-2 text-[12px] font-bold uppercase tracking-[0.14em] text-onAccent transition hover:scale-[1.03]"
           >
             Resume
           </a>
@@ -70,7 +70,7 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-[#070b0a]/95 px-6 backdrop-blur-xl md:hidden">
+        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-surface/95 px-6 backdrop-blur-xl md:hidden">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -86,7 +86,7 @@ export function SiteHeader() {
             href={siteMeta.resumePath}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-accent px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#070b0a]"
+            className="rounded-full bg-accent px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] text-onAccent"
             onClick={() => setOpen(false)}
           >
             Resume

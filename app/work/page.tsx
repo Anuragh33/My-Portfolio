@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Work | Anuragh Ragidimilli",
   description:
-    "Featured case studies in AI systems, full-stack product engineering, consumer UX, and platform architecture.",
+    "Featured projects in AI systems, full-stack engineering, consumer UX, and platform architecture.",
   path: "/work"
 });
 

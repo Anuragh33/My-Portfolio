@@ -4,8 +4,12 @@
 
 :root {
   color-scheme: dark;
-  --accent: #5ed29c;
-  --surface: #070b0a;
+  --accent: #60a5fa;
+  --accent-bright: #93c5fd;
+  --accent-deep: #1e40af;
+  --surface: #0a0f1a;
+  --base: #030508;
+  --on-accent: #0a1020;
   --glass-blur: 4px;
 }
 
@@ -16,8 +20,8 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 50% -10%, rgba(94, 210, 156, 0.16), transparent 30rem),
-    linear-gradient(180deg, #050807 0%, var(--surface) 38%, #030504 100%);
+    radial-gradient(circle at 50% -10%, rgba(96, 165, 250, 0.18), transparent 30rem),
+    linear-gradient(180deg, #050a14 0%, var(--surface) 38%, var(--base) 100%);
   color: #f8fafc;
   font-family: var(--font-inter), "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   text-rendering: optimizeLegibility;
@@ -36,7 +40,9 @@ body {
     transition-duration: 0.01ms !important;
   }
 
-  .hero-mesh {
+  .hero-mesh,
+  .hero-aurora,
+  .hero-orb {
     animation: none !important;
   }
 
@@ -47,7 +53,7 @@ body {
 }
 
 ::selection {
-  background: rgba(142, 249, 243, 0.22);
+  background: rgba(147, 197, 253, 0.28);
   color: #f8fafc;
 }
 
@@ -56,7 +62,7 @@ button,
 input,
 select,
 textarea {
-  outline-color: rgba(142, 249, 243, 0.7);
+  outline-color: rgba(147, 197, 253, 0.7);
 }
 
 .skip-link {
@@ -66,7 +72,7 @@ textarea {
   z-index: 100;
   padding: 0.75rem 1rem;
   background: var(--accent);
-  color: #070b0a;
+  color: var(--on-accent);
   font-weight: 700;
   border-radius: 9999px;
 }
@@ -90,22 +96,129 @@ textarea {
 
 .hero-mesh {
   background:
-    radial-gradient(ellipse 80% 60% at 15% 25%, rgba(94, 210, 156, 0.28), transparent 50%),
-    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(34, 211, 238, 0.16), transparent 45%),
-    radial-gradient(ellipse 60% 55% at 55% 85%, rgba(18, 63, 52, 0.45), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(94, 210, 156, 0.06), transparent 70%),
-    #050807;
-  animation: heroMesh 16s ease-in-out infinite alternate;
+    radial-gradient(ellipse 90% 70% at 12% 30%, rgba(96, 165, 250, 0.38), transparent 52%),
+    radial-gradient(ellipse 75% 55% at 88% 18%, rgba(56, 189, 248, 0.22), transparent 48%),
+    radial-gradient(ellipse 65% 60% at 60% 88%, rgba(30, 58, 95, 0.55), transparent 52%),
+    radial-gradient(circle at 48% 42%, rgba(147, 197, 253, 0.12), transparent 55%),
+    var(--base);
+  animation: heroMesh 18s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+.hero-aurora {
+  background: conic-gradient(
+    from 0deg at 62% 38%,
+    transparent 0deg,
+    rgba(96, 165, 250, 0.14) 55deg,
+    transparent 110deg,
+    rgba(56, 189, 248, 0.1) 180deg,
+    transparent 240deg,
+    rgba(96, 165, 250, 0.12) 300deg,
+    transparent 360deg
+  );
+  animation: heroAurora 28s linear infinite;
+  opacity: 0.75;
+  mix-blend-mode: screen;
+}
+
+.hero-beams {
+  background: repeating-linear-gradient(
+    102deg,
+    transparent 0px,
+    transparent 72px,
+    rgba(96, 165, 250, 0.02) 72px,
+    rgba(147, 197, 253, 0.07) 74px,
+    transparent 76px,
+    transparent 148px
+  );
+  opacity: 0.9;
+}
+
+.hero-grid {
+  background-image: linear-gradient(90deg, transparent 24.95%, rgba(255, 255, 255, 0.09) 25%, transparent 25.05%),
+    linear-gradient(90deg, transparent 49.95%, rgba(255, 255, 255, 0.09) 50%, transparent 50.05%),
+    linear-gradient(90deg, transparent 74.95%, rgba(255, 255, 255, 0.09) 75%, transparent 75.05%);
+}
+
+.hero-grain {
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero-vignette {
+  background: radial-gradient(ellipse 90% 80% at 50% 45%, transparent 35%, rgba(3, 5, 8, 0.5) 75%, rgba(3, 5, 8, 0.85) 100%);
+}
+
+.hero-orb-a {
+  animation: heroOrbA 14s ease-in-out infinite alternate;
+}
+
+.hero-orb-b {
+  animation: heroOrbB 18s ease-in-out infinite alternate;
+}
+
+.hero-orb-c {
+  animation: heroOrbC 12s ease-in-out infinite alternate;
+}
+
+.hero-orb-d {
+  animation: heroOrbD 16s ease-in-out infinite alternate;
 }
 
 @keyframes heroMesh {
   0% {
     filter: hue-rotate(0deg) brightness(1);
-    transform: scale(1) translateY(0);
+    transform: scale(1) translate(0, 0);
   }
   100% {
-    filter: hue-rotate(10deg) brightness(1.05);
-    transform: scale(1.04) translateY(-1%);
+    filter: hue-rotate(12deg) brightness(1.08);
+    transform: scale(1.05) translate(1%, -1%);
+  }
+}
+
+@keyframes heroAurora {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes heroOrbA {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(24px, -18px) scale(1.08);
+  }
+}
+
+@keyframes heroOrbB {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-20px, 24px) scale(1.06);
+  }
+}
+
+@keyframes heroOrbC {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(16px, 12px) scale(1.1);
+  }
+}
+
+@keyframes heroOrbD {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-12px, -20px) scale(1.05);
   }
 }
 
@@ -153,7 +266,7 @@ textarea {
   @apply liquid-glass;
   border-radius: 2.4rem;
   background:
-    radial-gradient(circle at 18% 0%, rgba(94, 210, 156, 0.12), transparent 34%),
+    radial-gradient(circle at 18% 0%, rgba(96, 165, 250, 0.12), transparent 34%),
     rgba(255, 255, 255, 0.012);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.12),
@@ -163,5 +276,5 @@ textarea {
 .glass-field {
   @apply liquid-glass;
   border-radius: 1rem;
-  background: rgba(7, 11, 10, 0.42);
+  background: rgba(10, 15, 26, 0.42);
 }

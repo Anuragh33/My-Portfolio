@@ -1,7 +1,7 @@
 export type ProjectLink = {
   label: string;
   href: string;
-  kind: "demo" | "repo" | "case-study";
+  kind: "demo" | "repo" | "details";
 };
 
 export type ProjectMetric = {
@@ -138,234 +138,232 @@ export const projects: Project[] = [
   {
     slug: "oliver",
     title: "Oliver",
-    tagline: "An in-progress flagship product exploring AI-native workflows and expressive interface design.",
-    status: "Flagship / in progress",
-    role: "Founder, product designer, full-stack engineer",
-    timeline: "2026 - Present",
+    tagline: "A macOS app that gives you invisible AI help during meetings—live transcription, chat, and screenshots without showing up on screen share.",
+    status: "macOS app · In progress",
+    role: "Solo builder — product, frontend, and native shell",
+    timeline: "2025 – Present",
     summary:
-      "Oliver is the clearest expression of how I like to build: fast, deeply technical, visually opinionated, and focused on making intelligent workflows feel tangible.",
+      "Oliver is a Tauri desktop app for macOS. It floats above your windows, transcribes mic and system audio, streams answers from the AI provider you choose, and stays hidden from Zoom, Teams, and screen recordings.",
     problem:
-      "Most productivity and AI tools feel either technically impressive or pleasant to use, but rarely both. I wanted to explore a product that carries intelligence, utility, and interface character in the same system.",
+      "During interviews and meetings you often need fast answers without breaking flow—alt-tabbing, typing in another app, or showing an obvious AI window on a shared screen.",
     solution:
-      "I am building Oliver as an AI-native product with deliberate product framing, interaction experiments, and a system architecture designed to evolve as the product matures.",
+      "I built Oliver as a native overlay excluded from screen capture (`NSWindowSharingNone`), with local SQLite history, encrypted API keys on-device, Whisper-based STT (local or API), and direct calls to OpenAI, Claude, Gemini, Groq, OpenRouter, or Ollama—no backend relay.",
     coreExperience: [
-      "Designing a high-character product identity instead of a generic productivity shell",
-      "Exploring interaction patterns that make intelligent workflows feel visible and usable",
-      "Balancing rapid iteration with long-term architecture decisions"
+      "Toggle the overlay with global hotkeys and get streamed AI responses in a floating panel",
+      "Live transcription from microphone and system audio (BlackHole) with optional screenshot context",
+      "Onboarding for provider keys, STT model choice, prompt presets, and usage history in a local dashboard"
     ],
     architecture: [
-      "Full-stack application architecture optimized for fast product iteration",
-      "Modular UI system to support evolving workflows and interface experiments",
-      "AI-native workflow patterns layered into the product rather than bolted on"
+      "Tauri 2 + Rust for macOS windowing, permissions, and SQLite via tauri-plugin-sql",
+      "Vite + React + TypeScript for the dashboard and overlay UI",
+      "Provider adapters with AES-GCM-SIV encrypted key storage; all traffic goes straight to the provider you configure"
     ],
     aiInvolvement:
-      "Oliver is where I test how AI should behave inside a product experience, especially around workflow support, intelligence visibility, and user trust.",
+      "Whisper handles speech-to-text; LLM providers handle chat. The product work is making that pipeline feel instant, private, and invisible to everyone else on the call.",
     challenges: [
-      "Defining the product while also defining its interaction language",
-      "Keeping experimentation disciplined enough that the product can harden into something real",
-      "Making advanced behavior feel intuitive instead of theatrical"
+      "macOS screen-recording and audio routing (BlackHole multi-output setup)",
+      "Keeping latency low while streaming tokens and transcripts",
+      "Shipping a notarized desktop app with sensible defaults for hotkeys and permissions"
     ],
     outcome:
-      "Still in active development, but already the strongest signal of the kind of AI-native products I want to build next.",
+      "Active development with a public marketing site and open-source app repo. Oliver is my flagship native AI product.",
     whyItMatters:
-      "Oliver matters because it is not just another project. It shows my product ambition, taste, and technical direction in one place.",
+      "It shows I can ship past the browser: OS APIs, privacy-sensitive data handling, and real-time AI UX in a tool people would actually run during a live meeting.",
     reflection:
-      "The most interesting AI products are not the ones with the loudest intelligence. They are the ones where intelligence disappears into confident product behavior.",
-    stack: ["TypeScript", "Next.js", "Modern UI systems", "AI-native workflows"],
-    capabilities: ["Product direction", "Interface systems", "Interactive design", "AI product thinking"],
+      "The hardest part is not the model call—it is trust: local storage, no telemetry, and a UI that never leaks into the recording.",
+    stack: ["Tauri", "Rust", "TypeScript", "React", "SQLite", "Whisper", "macOS"],
+    capabilities: ["Desktop apps", "Real-time AI", "Native integrations", "Privacy-first design"],
     links: [
-      { label: "Live demo", href: "https://oliver-site-psi.vercel.app", kind: "demo" },
+      { label: "Live site", href: "https://oliver-site-psi.vercel.app", kind: "demo" },
       { label: "GitHub", href: "https://github.com/Anuragh33/Oliver", kind: "repo" },
-      { label: "Case study", href: "/work/oliver", kind: "case-study" }
+      { label: "Project details", href: "/work/oliver", kind: "details" }
     ],
     featured: true,
     order: 1,
-    accent: "from-[#5ed29c]/30 via-[#123f34]/20 to-transparent",
+    accent: "from-blue-400/30 via-blue-900/20 to-transparent",
     heroImage: "/projects/oliver.png",
     metrics: [
-      { label: "Status", value: "Active build" },
-      { label: "Focus", value: "AI-native UX" }
+      { label: "Platform", value: "macOS desktop" },
+      { label: "Providers", value: "6 LLM + Whisper" }
     ],
     impactBullets: [
-      "Defines my product direction for AI-native workflow tools",
-      "Tests interaction language before the surface area grows too large",
-      "Balances experimentation with architecture that can harden over time"
+      "Invisible to screen share via native macOS window exclusion",
+      "No backend relay—keys and history stay on your machine",
+      "Combines STT, vision (screenshots), and multi-provider chat in one overlay"
     ],
     filterTags: ["flagship", "ai", "full-stack"]
   },
   {
     slug: "work-search",
     title: "Work Search",
-    tagline: "An AI-powered job search platform with resume ingestion, matching, automation, and orchestration.",
-    status: "AI systems case study",
-    role: "Full-stack AI engineer",
-    timeline: "2025 - 2026",
+    tagline: "AI-powered job search across many sources—with resume parsing, skill matching, ATS scoring, and application tracking.",
+    status: "Full-stack product · Shipped",
+    role: "Solo full-stack engineer",
+    timeline: "2025 – 2026",
     summary:
-      "Work Search combines resume parsing, job aggregation, matching logic, OpenAI integration, and scheduled workflows into a practical full-stack AI system.",
+      "Work Search is a Next.js frontend and FastAPI backend that aggregates listings, ingests resumes (PDF/DOCX), scores fit with embeddings and LLM helpers, and runs scheduled pipelines to keep jobs fresh.",
     problem:
-      "Job searching is fragmented, repetitive, and manual. Candidates repeat work across discovery, filtering, resume tailoring, and application tracking.",
+      "Job search spreads across boards, ATS portals, and spreadsheets. Resumes, skill matching, and apply links are rarely in one place.",
     solution:
-      "I built a platform that aggregates listings, parses resumes, scores matches, automates discovery workflows, and creates a more intelligent application pipeline.",
+      "I built a unified app: Clerk auth, Neon Postgres for users and applications, a Python service layer for search/scoring/conversion, and automation for recurring job ingestion—with direct-apply URL handling for Lever, Greenhouse, and Ashby.",
     coreExperience: [
-      "Resume conversion and extraction into reusable candidate context",
-      "Job matching and prioritization across multiple sources",
-      "Workflow automation around discovery, filtering, and generated outputs"
+      "Upload or paste a resume and get structured skills, domains, and match scores against stored jobs",
+      "Search and filter listings from many sources with quality gates and embedding-based matching",
+      "Track applications, export tailored outputs (including LaTeX resume paths), and optional LinkedIn flows via Nango"
     ],
     architecture: [
-      "Next.js frontend for the product interface",
-      "FastAPI backend for processing, orchestration, and integrations",
-      "OpenAI-backed intelligence for parsing, generation, and decision support",
-      "Scheduler and job source aggregation services for recurring automation"
+      "Next.js 16 + Clerk on the frontend; FastAPI orchestrating search, storage, and AI services",
+      "Services: job_search, resume_converter, skill_extractor, embedding_matcher, ats_scorer, scoring_engine, pipeline_scheduler, job_store",
+      "Neon/Postgres for users and application history; background pipelines for ongoing discovery"
     ],
     aiInvolvement:
-      "AI is used where it creates leverage: resume parsing, contextual matching, generated outputs, and workflow automation rather than as a decorative assistant.",
+      "LLMs and embeddings power resume parsing, tailoring, domain classification, and match explanations—not a generic chat box on top of a job board.",
     challenges: [
-      "Coordinating multiple job sources with different structures and quality levels",
-      "Turning messy resume data into reliable matching context",
-      "Keeping automation useful without losing transparency for the user"
+      "Normalizing heterogeneous job feeds and improving direct-apply links per ATS",
+      "Making resume extraction reliable enough for scoring and filters",
+      "Balancing automated pipelines with clear UX when matches update"
     ],
     outcome:
-      "A full-stack AI workflow that demonstrates product engineering, orchestration, and applied AI in one system.",
+      "Deployed demo with a documented backend repo—an end-to-end example of product UX plus Python orchestration for real job-search workflows.",
     whyItMatters:
-      "This project proves I can design AI systems where product UX, backend orchestration, and automation all have to work together.",
+      "Recruiters can see full-stack delivery: typed frontend, serious Python backend, auth, persistence, and applied AI in one shipped project.",
     reflection:
-      "Good AI products are often workflow products first. The model matters, but the surrounding system matters more.",
-    stack: ["Next.js", "TypeScript", "FastAPI", "Python", "OpenAI", "Pipeline scheduling"],
-    capabilities: ["AI systems", "Backend orchestration", "Product UX", "Automation"],
+      "Job search is a workflow problem. The win is matching, persistence, and automation—not another wrapper around a single API.",
+    stack: ["Next.js", "TypeScript", "FastAPI", "Python", "Clerk", "Neon/Postgres", "OpenAI", "Embeddings"],
+    capabilities: ["AI systems", "Backend orchestration", "Data pipelines", "Product UX"],
     links: [
       { label: "Live demo", href: "https://worksearch-33ha.vercel.app/sign-in", kind: "demo" },
-      { label: "Case study only", href: "/contact", kind: "case-study" }
+      { label: "GitHub", href: "https://github.com/Anuragh33/work-search", kind: "repo" },
+      { label: "Project details", href: "/work/work-search", kind: "details" }
     ],
     featured: true,
     order: 2,
-    accent: "from-cyan-300/25 via-[#5ed29c]/10 to-transparent",
+    accent: "from-sky-300/25 via-blue-400/10 to-transparent",
     heroImage: "/projects/work-search.png",
     metrics: [
-      { label: "Pipeline", value: "Multi-source jobs" },
-      { label: "AI layer", value: "Resume + matching" }
+      { label: "Sources", value: "20+ job feeds" },
+      { label: "Backend", value: "FastAPI services" }
     ],
     impactBullets: [
-      "Unifies job discovery, resume parsing, and matching in one workflow",
-      "Demonstrates orchestration across Next.js, FastAPI, and scheduled automation",
-      "Uses AI for parsing and decisions—not as a decorative chat layer"
+      "End-to-end pipeline: ingest jobs, parse resumes, score, and track applications",
+      "ATS-aware apply links and quality gates on incoming listings",
+      "Shows how I wire Next.js, Clerk, Postgres, and Python AI services together"
     ],
     filterTags: ["ai", "full-stack"]
   },
   {
     slug: "bhasha",
     title: "Bhasha",
-    tagline: "A language learning product with lessons, quizzes, progress tracking, and admin content workflows.",
-    status: "Product UX case study",
+    tagline: "A Duolingo-style language learning web app—currently focused on Spanish—with lessons, hearts, quests, shop, and an admin CMS.",
+    status: "Web app · Shipped",
     role: "Full-stack product engineer",
     timeline: "2025",
     summary:
-      "Bhasha is the consumer-facing product case study: learning flows, progress systems, gated progression, and content management in a polished web app.",
+      "Bhasha is a Next.js learning product with Clerk auth, gamified progression (units, lessons, challenges), leaderboard and shop pages, and a React-Admin style dashboard to manage courses and content.",
     problem:
-      "Language learning products need a progression system that feels motivating, easy to return to, and structured enough to scale content.",
+      "I wanted a real consumer app with daily return loops—not a tutorial repo—so I could practice content modeling, auth, and motivation mechanics.",
     solution:
-      "I built Bhasha with lesson flows, quizzes, progress tracking, practice states, and an admin path for managing learning content.",
+      "I implemented a full learn path: marketing landing, signed-in learn/quests/shop/leaderboard routes, challenge APIs, progress upserts, and admin CRUD for courses, units, lessons, and challenge options.",
     coreExperience: [
-      "Structured lesson progression and challenge completion",
-      "Feedback loops through progress, quests, and practice modes",
-      "Admin workflows for maintaining lesson data and content"
+      "Pick up where you left off on /learn with unit banners, lesson buttons, and challenge completion",
+      "Earn and spend in-app currency through quests and the shop",
+      "Admins create and edit curriculum without touching the database by hand"
     ],
     architecture: [
-      "Next.js app architecture with authenticated learning flows",
-      "Clerk for identity and session management",
-      "Drizzle ORM with Neon/Postgres-backed data modeling",
-      "State and progression systems tuned for learner continuity"
+      "Next.js App Router with (marketing) and (main) route groups",
+      "Clerk for authentication; API routes for courses, challenges, and progress",
+      "Drizzle ORM + Postgres for relational lesson data; server actions for progress and subscriptions"
     ],
     aiInvolvement:
-      "Bhasha is less about explicit AI and more about building a product experience with strong behavioral loops, content systems, and user progression.",
+      "No generative AI layer—this project is about product UX, schema design, and shipping a cohesive learning loop.",
     challenges: [
-      "Keeping the product simple while supporting depth in lessons and progression",
-      "Designing content structures that could scale beyond a single language",
-      "Balancing motivation mechanics with a clean learning experience"
+      "Modeling units, lessons, and challenges so content stays consistent",
+      "Keeping the learner UI fast and clear on mobile",
+      "Separating marketing, learner, and admin surfaces without duplicating logic"
     ],
     outcome:
-      "A shippable learning product that demonstrates consumer UX, stateful experiences, and full-stack product delivery.",
+      "Live demo on Vercel with open-source repo—a complete small-scale learning product, not a marketing mock.",
     whyItMatters:
-      "Bhasha shows I can build user-facing products with rhythm, feedback, and retention-minded UX, not only backend-heavy AI systems.",
+      "It balances my AI-heavy work with proof I can ship polished, stateful consumer experiences recruiters can click through.",
     reflection:
-      "Product stickiness comes from small loops done well, not just feature count.",
-    stack: ["Next.js", "TypeScript", "Clerk", "Drizzle ORM", "Neon/Postgres", "Zustand"],
-    capabilities: ["Consumer UX", "State modeling", "Content workflows", "Full-stack product delivery"],
+      "Retention comes from tight loops—one more lesson, one quest, one leaderboard check—not from feature sprawl.",
+    stack: ["Next.js", "TypeScript", "Clerk", "Drizzle ORM", "Postgres", "React Admin patterns"],
+    capabilities: ["Consumer UX", "Content modeling", "Auth flows", "Admin tooling"],
     links: [
       { label: "Live demo", href: "https://bhasha-xi.vercel.app", kind: "demo" },
       { label: "GitHub", href: "https://github.com/Anuragh33/Bhasha", kind: "repo" },
-      { label: "Case study only", href: "/contact", kind: "case-study" }
+      { label: "Project details", href: "/work/bhasha", kind: "details" }
     ],
     featured: true,
     order: 3,
-    accent: "from-[#5ed29c]/25 via-lime-300/10 to-transparent",
+    accent: "from-blue-400/25 via-sky-300/10 to-transparent",
     heroImage: "/projects/bhasha.png",
     metrics: [
-      { label: "Learner UX", value: "Progress + quests" },
-      { label: "Stack", value: "Clerk + Drizzle" }
+      { label: "Language", value: "Spanish (v1)" },
+      { label: "Surfaces", value: "Learn + admin" }
     ],
     impactBullets: [
-      "Shipped a full learning loop with lessons, quizzes, and progression",
-      "Built admin workflows so content can scale beyond a single language",
-      "Proves consumer UX craft alongside enterprise AI depth"
+      "Full curriculum model with units, lessons, and challenges",
+      "Gamification: quests, shop, leaderboard, and progress persistence",
+      "Admin CMS for courses and challenge content"
     ],
     filterTags: ["full-stack"]
   },
   {
     slug: "idea-ai",
     title: "Idea.AI",
-    tagline: "An extensible AI collaboration platform with agents, meetings, auth, billing, and realtime workflows.",
-    status: "Platform case study",
-    role: "Full-stack platform engineer",
+    tagline: "A Next.js starter for AI meeting and agent products—auth, agents, Stream video calls, tRPC APIs, Inngest jobs, and Polar billing.",
+    status: "Platform starter · Shipped",
+    role: "Full-stack engineer",
     timeline: "2025",
     summary:
-      "Idea.AI is a reusable base for AI-native meeting and agent products, combining collaboration primitives, premium flows, and workflow automation.",
+      "Idea.AI is a production-shaped starter I use to spin up AI collaboration ideas quickly: sign-in, agent CRUD, meeting rooms with Stream, background workflows, and upgrade paths wired through better-auth and Polar.",
     problem:
-      "AI product ideas often need the same foundation: auth, meetings, agents, realtime collaboration, background workflows, and monetization paths.",
+      "New AI product ideas repeat the same scaffolding—auth, database, agents, realtime video, webhooks, and background jobs—before you get to the actual idea.",
     solution:
-      "I built Idea.AI as a platform foundation that brings those pieces together so new AI collaboration products can move faster.",
+      "I packaged the common stack into one repo: dashboard routes for agents and meetings, call pages, tRPC routers, Inngest functions, Drizzle on Neon, OpenAI + Stream integrations, and billing hooks so experiments start from a real foundation.",
     coreExperience: [
-      "Agent and meeting workflows that can support AI-native collaboration",
-      "Realtime video/chat foundations for product interaction",
-      "Auth and premium paths that make the platform feel closer to production"
+      "Create and manage agents, then join meetings with Stream-powered video/chat",
+      "Typed client/server contracts via tRPC and TanStack Query",
+      "Upgrade flow and webhooks for subscriptions without rebuilding auth each time"
     ],
     architecture: [
-      "Next.js and TypeScript application architecture",
-      "TRPC for typed application APIs",
-      "Inngest for background workflows",
-      "OpenAI, Stream video/chat, Drizzle ORM, auth, and premium billing path"
+      "Next.js 15 App Router with (auth), (dashboard), and call layouts",
+      "tRPC + Drizzle ORM + Neon; Inngest for durable background work",
+      "better-auth, Polar SDK, Stream video/chat, OpenAI realtime helpers"
     ],
     aiInvolvement:
-      "AI is part of the platform layer through agents and meeting workflows, designed to become a reusable foundation for multiple product directions.",
+      "Agents and meeting flows are the AI surface area—OpenAI and Stream are integrated where collaboration actually happens, not as a disconnected chat widget.",
     challenges: [
-      "Keeping the foundation flexible without becoming vague",
-      "Combining realtime collaboration with AI workflows",
-      "Making the platform broad enough to reuse but specific enough to demonstrate depth"
+      "Keeping the template modular enough to fork without carrying dead weight",
+      "Wiring webhooks, Inngest, and auth without fragile local-only setups",
+      "Making realtime and agent state understandable in the UI"
     ],
     outcome:
-      "A foundation for future AI-native collaboration products that proves architecture, platform thinking, and orchestration depth.",
+      "Open-source repo and live demo—ready to clone for the next AI meeting or agent product experiment.",
     whyItMatters:
-      "This project shows I can build not just features, but reusable product foundations for AI-native experiences.",
+      "Shows platform thinking: I do not only ship one-off features; I build reusable bases that compress time to a credible MVP.",
     reflection:
-      "Reusable systems are only valuable when they still preserve momentum. Idea.AI is my attempt at getting flexibility and speed into the same foundation.",
-    stack: ["Next.js", "TypeScript", "TRPC", "Inngest", "OpenAI", "Stream", "Drizzle ORM"],
-    capabilities: ["Platform architecture", "AI-native product systems", "Realtime collaboration", "Workflow processing"],
+      "A starter only earns its keep if it is opinionated about the hard parts—auth, realtime, jobs—and flexible everywhere else.",
+    stack: ["Next.js", "TypeScript", "tRPC", "Inngest", "Stream", "OpenAI", "Drizzle", "better-auth", "Polar"],
+    capabilities: ["Platform architecture", "Realtime systems", "Background jobs", "Auth and billing"],
     links: [
       { label: "Live demo", href: "https://idea-ai-eight.vercel.app/sign-in", kind: "demo" },
-      { label: "GitHub", href: "https://github.com/Anuragh33/Idea", kind: "repo" },
-      { label: "Case study only", href: "/contact", kind: "case-study" }
+      { label: "GitHub", href: "https://github.com/Anuragh33/Idea.AI", kind: "repo" },
+      { label: "Project details", href: "/work/idea-ai", kind: "details" }
     ],
     featured: true,
     order: 4,
-    accent: "from-emerald-300/20 via-[#5ed29c]/10 to-transparent",
+    accent: "from-indigo-300/20 via-blue-400/10 to-transparent",
     heroImage: "/projects/idea-ai.png",
     metrics: [
-      { label: "Platform", value: "Agents + meetings" },
-      { label: "Realtime", value: "Stream + Inngest" }
+      { label: "Stack", value: "tRPC + Inngest" },
+      { label: "Realtime", value: "Stream video" }
     ],
     impactBullets: [
-      "Reusable foundation for AI collaboration products",
-      "Combines auth, billing, agents, and realtime in one architecture",
-      "Shows platform thinking—not one-off feature delivery"
+      "Agents, meetings, and call routes already wired",
+      "Auth, billing webhooks, and background jobs included",
+      "Designed to fork for new AI collaboration products"
     ],
     filterTags: ["ai", "full-stack"]
   }
@@ -374,15 +372,15 @@ export const projects: Project[] = [
 export const buildLog: BuildLogEntry[] = [
   {
     slug: "oliver-identity-systems",
-    title: "Designing product identity before polishing features",
+    title: "Building invisible UI on macOS",
     summary:
-      "What Oliver is teaching me about shaping the interaction language of a product before the surface area gets too large.",
+      "What Oliver is teaching me about native windowing, screen-capture exclusion, and keeping AI useful during live calls.",
     date: "2026-05-15",
     topic: "Interaction experiments",
     content: [
-      "I have become more convinced that interface identity should be designed early, not sprinkled on after functionality works.",
-      "Oliver is where I am testing how motion, structure, and product language can become part of the system itself rather than decoration.",
-      "The hard part is keeping that ambition disciplined enough that the product still sharpens instead of sprawling."
+      "Desktop AI has different constraints than web: permissions, audio routing, and latency all show up in the first week.",
+      "Oliver forced me to treat privacy as a feature—local SQLite, encrypted keys, and direct provider calls.",
+      "The overlay only works if it stays off the recording; native APIs are not optional here."
     ]
   },
   {

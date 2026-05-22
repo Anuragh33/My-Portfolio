@@ -16,7 +16,7 @@ type ProjectCardProps = {
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const reducedMotion = useReducedMotion();
   const ref = useRef<HTMLElement | null>(null);
-  const caseStudyHref = `/work/${project.slug}`;
+  const projectDetailsHref = `/work/${project.slug}`;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -26,7 +26,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
     <motion.div style={{ y }} className={priority ? "lg:col-span-2" : undefined}>
       <article ref={ref} className="glass-panel group h-full overflow-hidden p-6 transition hover:scale-[1.01]">
-        <Link href={caseStudyHref} className="block">
+        <Link href={projectDetailsHref} className="block">
           <div className="relative isolate aspect-video overflow-hidden rounded-[1.4rem]">
             <Image
               src={project.heroImage}
@@ -36,9 +36,9 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
               sizes="(max-width: 768px) 100vw, 50vw"
               priority={priority}
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#070b0a]/70 via-[#070b0a]/10 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface/70 via-surface/10 to-transparent" />
             <span
-              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-[#070b0a]/60 text-white shadow-lg backdrop-blur-md transition group-hover:border-accent/50 group-hover:text-accent"
+              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-surface/60 text-white shadow-lg backdrop-blur-md transition group-hover:border-accent/50 group-hover:text-accent"
               aria-hidden="true"
             >
               <ArrowUpRight className="h-4 w-4 shrink-0" />
