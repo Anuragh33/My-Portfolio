@@ -46,8 +46,9 @@ export function ContactForm() {
         body: JSON.stringify({ ...formState, website: honeypot })
       });
 
-      const data = (await res.json()) as { message?: string };
-      setResponse(data.message ?? "Thanks for reaching out.");
+      const data = (await res.json()) as { message?: string; details?: string };
+      const detailSuffix = data.details ? ` (${data.details})` : "";
+      setResponse(`${data.message ?? "Thanks for reaching out."}${detailSuffix}`);
       setIsError(!res.ok);
 
       if (res.ok) {

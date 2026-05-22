@@ -17,7 +17,7 @@ const contextLabels = {
   collaboration: "Collaboration"
 } as const;
 
-const DEFAULT_FROM = "Anuragh Portfolio <onboarding@resend.dev>";
+const DEFAULT_FROM = "onboarding@resend.dev";
 
 /** Resend requires a verified sender — ignore personal inboxes often set by mistake in Vercel. */
 function resolveFromEmail(): string {
@@ -90,13 +90,16 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Resend error:", error);
-    const hint =
-      typeof error.message === "string" && /domain|verified|from/i.test(error.message)
-        ? " The sender address must be verified in Resend (use onboarding@resend.dev for testing)."
+    const resendMessage = typeof error.message === "string" ? error.message : "";
+    const hint = /domain|verified|from/i.test(resendMessage)
+      ? " Use sender onboarding@resend.dev (verified in Resend)."
+      : /only send|your own email|testing/i.test(resendMessage)
+        ? " On Resend's test plan, deliveries may only go to the email on your Resend account—set CONTACT_TO_EMAIL to that address in Vercel."
         : "";
     return Response.json(
       {
-        message: `Something went wrong sending your message. Please try email directly.${hint}`
+        message: `Something went wrong sending your message. Please try email directly.${hint}`,
+        details: resendMessage || undefined
       },
       { status: 500 }
     );
