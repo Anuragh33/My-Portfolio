@@ -17,6 +17,27 @@ const contextLabels = {
   collaboration: "Collaboration"
 } as const;
 
+const DEFAULT_FROM = "Anuragh Portfolio <onboarding@resend.dev>";
+
+/** Resend requires a verified sender — ignore personal inboxes often set by mistake in Vercel. */
+function resolveFromEmail(): string {
+  const custom = process.env.CONTACT_FROM_EMAIL?.trim();
+  if (!custom) {
+    return DEFAULT_FROM;
+  }
+  if (custom.includes("<") && custom.includes("@")) {
+    return custom;
+  }
+  if (custom.endsWith("@resend.dev")) {
+    return `Anuragh Portfolio <${custom}>`;
+  }
+  const personalDomains = ["@icloud.com", "@gmail.com", "@yahoo.com", "@hotmail.com", "@outlook.com"];
+  if (personalDomains.some((domain) => custom.toLowerCase().includes(domain))) {
+    return DEFAULT_FROM;
+  }
+  return `Anuragh Portfolio <${custom}>`;
+}
+
 export async function POST(request: Request) {
   const body = await request.json();
   const parsed = contactSchema.safeParse(body);
@@ -38,7 +59,7 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.CONTACT_TO_EMAIL ?? siteMeta.email;
-  const fromEmail = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
+  const fromEmail = resolveFromEmail();
 
   if (!apiKey) {
     return Response.json(
@@ -69,8 +90,14 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Resend error:", error);
+    const hint =
+      typeof error.message === "string" && /domain|verified|from/i.test(error.message)
+        ? " The sender address must be verified in Resend (use onboarding@resend.dev for testing)."
+        : "";
     return Response.json(
-      { message: "Something went wrong sending your message. Please try email directly." },
+      {
+        message: `Something went wrong sending your message. Please try email directly.${hint}`
+      },
       { status: 500 }
     );
   }
