@@ -12,7 +12,7 @@ const BAR_WIDTH = 8;
 
 export function AnimatedCounter({ value, duration = 1200 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const inView = useInView(ref, { once: false, amount: 0.5 });
   const reducedMotion = useReducedMotion();
 
   const match = value.match(/^(-?\d+\.?\d*)(.*)$/);
@@ -23,6 +23,10 @@ export function AnimatedCounter({ value, duration = 1200 }: AnimatedCounterProps
   const [progress, setProgress] = useState(target === null ? 1 : 0);
 
   useEffect(() => {
+    if (!inView) {
+      if (target !== null && !reducedMotion) setProgress(0);
+      return;
+    }
     if (target === null) {
       setProgress(1);
       return;
@@ -31,7 +35,6 @@ export function AnimatedCounter({ value, duration = 1200 }: AnimatedCounterProps
       setProgress(1);
       return;
     }
-    if (!inView) return;
     let raf = 0;
     const start = performance.now();
     const tick = (now: number) => {

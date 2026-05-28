@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, useInView, useReducedMotion, type Variants } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { TerminalFrame } from "@/components/terminal-frame";
 import { getFeaturedProjects, siteMeta } from "@/lib/data";
@@ -25,6 +25,9 @@ export function Hero() {
   const reducedMotion = useReducedMotion();
   const router = useRouter();
   const [tickerText, setTickerText] = useState(tickerLine);
+  const [nameText, setNameText] = useState("");
+  const nameRef = useRef<HTMLHeadingElement>(null);
+  const nameInView = useInView(nameRef, { once: false, amount: 0.3 });
 
   useEffect(() => {
     if (reducedMotion) {
@@ -36,12 +39,28 @@ export function Hero() {
     const id = window.setInterval(() => {
       i += 1;
       setTickerText(tickerLine.slice(0, i));
-      if (i >= tickerLine.length) {
-        window.clearInterval(id);
-      }
+      if (i >= tickerLine.length) window.clearInterval(id);
     }, 22);
     return () => window.clearInterval(id);
   }, [reducedMotion]);
+
+  useEffect(() => {
+    if (!nameInView) {
+      setNameText("");
+      return;
+    }
+    if (reducedMotion) {
+      setNameText(siteMeta.name);
+      return;
+    }
+    let i = 0;
+    const id = window.setInterval(() => {
+      i += 1;
+      setNameText(siteMeta.name.slice(0, i));
+      if (i >= siteMeta.name.length) window.clearInterval(id);
+    }, 90);
+    return () => window.clearInterval(id);
+  }, [nameInView, reducedMotion]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -76,12 +95,19 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
+          ref={nameRef}
           variants={itemVariants}
           className="max-w-4xl font-serif text-[44px] leading-[1.02] tracking-tight text-fg sm:text-[64px] lg:text-[78px]"
         >
-          {siteMeta.name}
-          <span className="text-accent">.</span>
-          <span className="block-caret" aria-hidden="true" />
+          {nameText}
+          {nameText.length < siteMeta.name.length ? (
+            <span className="text-accent">_</span>
+          ) : (
+            <>
+              <span className="text-accent">.</span>
+              <span className="block-caret" aria-hidden="true" />
+            </>
+          )}
         </motion.h1>
 
         <motion.p

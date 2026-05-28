@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Github, Linkedin, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -59,6 +59,26 @@ export function FileMenu() {
           ))}
         </nav>
 
+        <div className="hidden items-center gap-2 md:flex">
+          <a
+            href={siteMeta.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="border border-line-strong p-1.5 text-fg transition hover:border-accent hover:text-accent"
+          >
+            <Linkedin className="h-3.5 w-3.5" />
+          </a>
+          <a
+            href={siteMeta.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="border border-line-strong p-1.5 text-fg transition hover:border-accent hover:text-accent"
+          >
+            <Github className="h-3.5 w-3.5" />
+          </a>
+        </div>
         <a
           href={siteMeta.resumePath}
           target="_blank"
@@ -100,6 +120,26 @@ export function FileMenu() {
           >
             [F1] Resume
           </a>
+          <div className="mt-4 flex gap-2">
+            <a
+              href={siteMeta.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="border border-line-strong p-2 text-fg transition hover:border-accent hover:text-accent"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a
+              href={siteMeta.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="border border-line-strong p-2 text-fg transition hover:border-accent hover:text-accent"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       ) : null}
     </header>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { TerminalFrame, type FrameStatus } from "@/components/terminal-frame";
+import { TypedTitle } from "@/components/typed-title";
 import type { Project } from "@/lib/data";
 
 function deriveStatus(status: string): FrameStatus {
@@ -50,7 +51,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </span>
           </div>
 
-          <h3 className="font-serif text-3xl text-fg">{project.title}</h3>
+          <h3 className="font-serif text-3xl text-fg">
+            <TypedTitle text={project.title} />
+          </h3>
 
           <p className="font-mono text-[13px] leading-6 text-fg-muted">
             <span className="text-fg-dim">// </span>

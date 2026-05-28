@@ -30,8 +30,8 @@ export default function HomePage() {
         <Reveal>
           <SectionHeading
             eyebrow="Selected work"
-            title="Four projects that show how I think, build, and scale."
-            description="A macOS meeting assistant, an AI job search platform, a language-learning app, and an AI collaboration starter."
+            title="Projects that show how I think, build, and scale."
+            description="A macOS meeting overlay, a desktop dictation app, an AI job platform, a language-learning app, and an AI collaboration starter."
           />
         </Reveal>
         <div className="mt-8 grid gap-6 lg:auto-rows-fr lg:grid-cols-2">

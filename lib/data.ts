@@ -162,7 +162,7 @@ export const projects: Project[] = [
     slug: "oliver",
     title: "Oliver",
     tagline: "A macOS app that gives you invisible AI help during meetings—live transcription, chat, and screenshots without showing up on screen share.",
-    status: "macOS app · In progress",
+    status: "macOS app · Shipped",
     role: "Solo builder — product, frontend, and native shell",
     timeline: "2025 – Present",
     summary:
@@ -202,7 +202,7 @@ export const projects: Project[] = [
       { label: "Project details", href: "/work/oliver", kind: "details" }
     ],
     featured: true,
-    order: 1,
+    order: 2,
     accent: "from-blue-400/30 via-blue-900/20 to-transparent",
     heroImage: "/projects/oliver.png",
     metrics: [
@@ -215,6 +215,62 @@ export const projects: Project[] = [
       "Whisper STT + real-time streaming across 6 providers with a global hotkey that never steals focus"
     ],
     filterTags: ["flagship", "ai", "full-stack"]
+  },
+  {
+    slug: "vani",
+    title: "Vani",
+    tagline: "A cross-platform desktop dictation app — press a hotkey, speak naturally, and get AI-polished text injected into any active app via Whisper STT and Claude.",
+    status: "Desktop app · In progress",
+    role: "Solo builder — product, Electron shell, and AI pipeline",
+    timeline: "2026 – Present",
+    summary:
+      "Vani is an Electron desktop app for macOS and Windows. Press a global hotkey from any app, speak naturally, and get polished text injected directly into the focused window — powered by OpenAI Whisper for transcription and Claude for cleanup, with local model support planned.",
+    problem:
+      "Dictation tools either require constant app-switching or are locked to one input field. There is no frictionless way to speak naturally and get edited text wherever your cursor already is.",
+    solution:
+      "A floating pill overlay appears on hotkey press, records mic audio with a live waveform, transcribes via Whisper, cleans up with Claude, and injects the result directly into the focused window — all without leaving your current app.",
+    coreExperience: [
+      "Press Cmd+Shift+Space from any app — a floating overlay appears and starts recording immediately",
+      "Live waveform feedback with silence auto-stop; transcription and cleanup in under 3 seconds",
+      "Full dashboard for history, notes, model settings, and usage — accessible from the system tray"
+    ],
+    architecture: [
+      "Electron 30 main process with IPC surface for transcription, cleanup, text injection, notes, and history",
+      "React 18 + Vite renderer for both the dashboard and the floating overlay pill",
+      "OpenAI Whisper for STT, Claude for cleanup; electron-store with machine-specific AES encryption"
+    ],
+    aiInvolvement:
+      "Whisper handles speech-to-text; Claude cleans up the raw transcript into polished, context-aware prose. Local model runtime via Faster-Whisper and llama.cpp is the next milestone.",
+    challenges: [
+      "Injecting text reliably into any active app across macOS and Windows without stealing focus",
+      "Keeping the overlay lightweight and hidden from screen recorders with content protection enabled",
+      "Machine-specific encryption for API key storage without a backend or cloud dependency"
+    ],
+    outcome:
+      "Core dictation loop is fully working — hotkey, record, transcribe, clean, inject. Local model runtime and notarization are the remaining milestones before public release.",
+    whyItMatters:
+      "It shows I can build ambient, privacy-conscious desktop AI tools that disappear into the user's workflow rather than demanding attention.",
+    reflection:
+      "The hardest part is injection — every app handles focus and input events differently. Reliability here matters more than features.",
+    stack: ["Electron", "React", "TypeScript", "Vite", "Tailwind CSS", "Whisper", "OpenAI", "Claude"],
+    capabilities: ["Desktop apps", "Real-time AI", "Voice interfaces", "Privacy-first design"],
+    links: [
+      { label: "Project details", href: "/work/vani", kind: "details" }
+    ],
+    featured: true,
+    order: 1,
+    accent: "from-violet-400/30 via-purple-900/20 to-transparent",
+    heroImage: "/projects/vani.svg",
+    metrics: [
+      { label: "Platform", value: "macOS + Windows" },
+      { label: "Pipeline", value: "Whisper + Claude" }
+    ],
+    impactBullets: [
+      "Global hotkey dictation that injects polished text into any active app without focus loss",
+      "Whisper STT + Claude cleanup pipeline — transcription and editing in under 3 seconds",
+      "Machine-specific encrypted key storage, content protection, and no backend relay"
+    ],
+    filterTags: ["ai", "full-stack"]
   },
   {
     slug: "work-search",
@@ -260,7 +316,7 @@ export const projects: Project[] = [
       { label: "Project details", href: "/work/work-search", kind: "details" }
     ],
     featured: true,
-    order: 2,
+    order: 3,
     accent: "from-sky-300/25 via-blue-400/10 to-transparent",
     heroImage: "/projects/work-search.png",
     metrics: [
@@ -318,7 +374,7 @@ export const projects: Project[] = [
       { label: "Project details", href: "/work/bhasha", kind: "details" }
     ],
     featured: true,
-    order: 3,
+    order: 4,
     accent: "from-blue-400/25 via-sky-300/10 to-transparent",
     heroImage: "/projects/bhasha.png",
     metrics: [
@@ -376,7 +432,7 @@ export const projects: Project[] = [
       { label: "Project details", href: "/work/idea-ai", kind: "details" }
     ],
     featured: true,
-    order: 4,
+    order: 5,
     accent: "from-indigo-300/20 via-blue-400/10 to-transparent",
     heroImage: "/projects/idea-ai.png",
     metrics: [

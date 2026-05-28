@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(244,114,182,0.06)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="pillGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="1200" height="675" fill="#08080a"/>
+  <!-- Grid overlay -->
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <!-- Center ambient glow -->
+  <ellipse cx="600" cy="340" rx="500" ry="280" fill="url(#centerGlow)"/>
+
+  <!-- Simulated background app -->
+  <rect x="80" y="70" width="1040" height="540" rx="4" fill="#0d0d0f" stroke="#1c1c20" stroke-width="1" opacity="0.8"/>
+  <rect x="80" y="70" width="1040" height="30" rx="4" fill="#121215" opacity="0.9"/>
+  <rect x="80" y="88" width="1040" height="12" fill="#121215" opacity="0.9"/>
+  <circle cx="104" cy="85" r="5" fill="#2a2a2e"/>
+  <circle cx="120" cy="85" r="5" fill="#2a2a2e"/>
+  <circle cx="136" cy="85" r="5" fill="#2a2a2e"/>
+  <text x="600" y="90" font-family="monospace" font-size="10" fill="#3a3a3e" text-anchor="middle" letter-spacing="2">untitled_document.txt</text>
+
+  <!-- Fake document lines -->
+  <rect x="130" y="125" width="560" height="7" rx="2" fill="#1a1a1e"/>
+  <rect x="130" y="141" width="700" height="7" rx="2" fill="#1a1a1e"/>
+  <rect x="130" y="157" width="440" height="7" rx="2" fill="#1a1a1e"/>
+  <rect x="130" y="173" width="630" height="7" rx="2" fill="#1a1a1e"/>
+  <rect x="130" y="189" width="360" height="7" rx="2" fill="#1a1a1e"/>
+  <rect x="130" y="205" width="680" height="7" rx="2" fill="#1a1a1e"/>
+  <rect x="130" y="221" width="520" height="7" rx="2" fill="#1a1a1e"/>
+  <rect x="130" y="237" width="210" height="7" rx="2" fill="#1a1a1e"/>
+  <!-- cursor -->
+  <rect x="346" y="235" width="2" height="11" fill="#f472b6" opacity="0.8"/>
+
+  <!-- Pill glow halo -->
+  <ellipse cx="600" cy="345" rx="300" ry="90" fill="url(#pillGlow)"/>
+
+  <!-- Vani pill overlay -->
+  <rect x="320" y="293" width="560" height="104" rx="52" fill="#0f0f12" stroke="#f472b6" stroke-width="1.5"/>
+
+  <!-- Recording dot -->
+  <circle cx="378" cy="345" r="9" fill="#f43f5e"/>
+  <circle cx="378" cy="345" r="15" fill="none" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+  <circle cx="378" cy="345" r="22" fill="none" stroke="#f43f5e" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Waveform bars -->
+  <rect x="410" y="330" width="5" height="30" rx="2" fill="#f472b6" opacity="0.7"/>
+  <rect x="421" y="337" width="5" height="16" rx="2" fill="#f472b6" opacity="0.5"/>
+  <rect x="432" y="324" width="5" height="42" rx="2" fill="#f472b6" opacity="0.85"/>
+  <rect x="443" y="331" width="5" height="28" rx="2" fill="#f472b6" opacity="0.65"/>
+  <rect x="454" y="320" width="5" height="50" rx="2" fill="#f472b6" opacity="1"/>
+  <rect x="465" y="334" width="5" height="22" rx="2" fill="#f472b6" opacity="0.6"/>
+  <rect x="476" y="327" width="5" height="36" rx="2" fill="#f472b6" opacity="0.78"/>
+  <rect x="487" y="339" width="5" height="12" rx="2" fill="#f472b6" opacity="0.48"/>
+  <rect x="498" y="323" width="5" height="44" rx="2" fill="#f472b6" opacity="0.92"/>
+  <rect x="509" y="331" width="5" height="28" rx="2" fill="#f472b6" opacity="0.68"/>
+  <rect x="520" y="318" width="5" height="54" rx="2" fill="#f472b6" opacity="1"/>
+  <rect x="531" y="329" width="5" height="32" rx="2" fill="#f472b6" opacity="0.75"/>
+  <rect x="542" y="336" width="5" height="18" rx="2" fill="#f472b6" opacity="0.58"/>
+  <rect x="553" y="323" width="5" height="44" rx="2" fill="#f472b6" opacity="0.88"/>
+  <rect x="564" y="332" width="5" height="26" rx="2" fill="#f472b6" opacity="0.68"/>
+  <rect x="575" y="319" width="5" height="52" rx="2" fill="#f472b6" opacity="1"/>
+  <rect x="586" y="328" width="5" height="34" rx="2" fill="#f472b6" opacity="0.76"/>
+  <rect x="597" y="335" width="5" height="20" rx="2" fill="#f472b6" opacity="0.6"/>
+  <rect x="608" y="325" width="5" height="40" rx="2" fill="#f472b6" opacity="0.84"/>
+  <rect x="619" y="332" width="5" height="26" rx="2" fill="#f472b6" opacity="0.66"/>
+  <rect x="630" y="321" width="5" height="48" rx="2" fill="#f472b6" opacity="0.96"/>
+  <rect x="641" y="330" width="5" height="30" rx="2" fill="#f472b6" opacity="0.73"/>
+  <rect x="652" y="337" width="5" height="16" rx="2" fill="#f472b6" opacity="0.54"/>
+  <rect x="663" y="324" width="5" height="42" rx="2" fill="#f472b6" opacity="0.86"/>
+  <rect x="674" y="331" width="5" height="28" rx="2" fill="#f472b6" opacity="0.68"/>
+  <rect x="685" y="322" width="5" height="46" rx="2" fill="#f472b6" opacity="0.94"/>
+  <rect x="696" y="334" width="5" height="22" rx="2" fill="#f472b6" opacity="0.6"/>
+  <rect x="707" y="328" width="5" height="34" rx="2" fill="#f472b6" opacity="0.76"/>
+  <rect x="718" y="338" width="5" height="14" rx="2" fill="#f472b6" opacity="0.5"/>
+  <rect x="729" y="325" width="5" height="40" rx="2" fill="#f472b6" opacity="0.85"/>
+  <rect x="740" y="332" width="5" height="26" rx="2" fill="#f472b6" opacity="0.68"/>
+  <rect x="751" y="336" width="5" height="18" rx="2" fill="#f472b6" opacity="0.55"/>
+  <rect x="762" y="327" width="5" height="36" rx="2" fill="#f472b6" opacity="0.8"/>
+  <rect x="773" y="334" width="5" height="22" rx="2" fill="#f472b6" opacity="0.62"/>
+
+  <!-- Pill right label -->
+  <text x="800" y="339" font-family="monospace" font-size="11" fill="#6b6b7a" dominant-baseline="middle" letter-spacing="1">CMD+SHIFT+SPACE</text>
+  <text x="800" y="357" font-family="monospace" font-size="10" fill="#3a3a4a" letter-spacing="1">recording...</text>
+
+  <!-- VANI branding -->
+  <text x="600" y="46" font-family="Georgia, serif" font-size="30" fill="#f0f0f0" text-anchor="middle" letter-spacing="12">VANI</text>
+  <text x="600" y="63" font-family="monospace" font-size="9" fill="#f472b6" text-anchor="middle" letter-spacing="5">VOICE · AI · NATURAL · INPUT</text>
+
+  <!-- Transcription area -->
+  <rect x="320" y="422" width="560" height="1" fill="#1e1e24"/>
+  <text x="600" y="450" font-family="monospace" font-size="12" fill="#6b6b7a" text-anchor="middle">"Transcribing and injecting polished text"</text>
+  <text x="600" y="470" font-family="monospace" font-size="10" fill="#3a3a4a" text-anchor="middle">into any active application in real time</text>
+
+  <!-- Stack tags -->
+  <text x="100" y="622" font-family="monospace" font-size="10" fill="#2a2a2e" letter-spacing="1">Electron · React · Whisper STT · Claude · TypeScript · Vite</text>
+
+  <!-- WIP badge -->
+  <rect x="950" y="575" width="200" height="26" rx="2" fill="transparent" stroke="#f472b6" stroke-width="1"/>
+  <text x="1050" y="592" font-family="monospace" font-size="10" fill="#f472b6" text-anchor="middle" letter-spacing="3">WORK IN PROGRESS</text>
+</svg>
