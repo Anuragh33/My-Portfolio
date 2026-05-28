@@ -4,17 +4,20 @@ export function RecruiterStrip() {
   return (
     <section
       aria-label="Recruiter overview"
-      className="glass-panel-strong mb-8 p-6 lg:p-8"
+      className="mt-6 border border-line-strong bg-panel"
     >
-      <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">{siteMeta.availability}</p>
-      <p className="mt-3 text-lg font-semibold text-white">{siteMeta.title}</p>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {proofPoints.map((point) => (
-          <span key={point} className="liquid-glass rounded-full px-3 py-1.5 text-xs text-slate-200">
-            {point}
-          </span>
-        ))}
+      <div className="flex flex-wrap items-center gap-3 border-b border-line-strong bg-elevated px-5 py-2 font-mono text-[12px] text-fg">
+        <span className="live-badge" aria-label="Available">[ONLINE]</span>
+        <span>{siteMeta.availability}</span>
       </div>
+      <ul className="grid gap-1 px-5 py-4 font-mono text-[12px] text-fg-muted sm:grid-cols-2">
+        {proofPoints.map((point) => (
+          <li key={point}>
+            <span className="text-fg-dim">// </span>
+            {point}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

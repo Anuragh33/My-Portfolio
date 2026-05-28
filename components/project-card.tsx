@@ -1,66 +1,77 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
+import { TerminalFrame, type FrameStatus } from "@/components/terminal-frame";
 import type { Project } from "@/lib/data";
+
+function deriveStatus(status: string): FrameStatus {
+  const lower = status.toLowerCase();
+  if (lower.includes("in progress")) return "wip";
+  if (lower.includes("shipped")) return "shipped";
+  return "live";
+}
+
+function snakeCase(label: string) {
+  return label.toLowerCase().replace(/\s+/g, "_");
+}
 
 type ProjectCardProps = {
   project: Project;
-  priority?: boolean;
 };
 
-export function ProjectCard({ project, priority = false }: ProjectCardProps) {
-  const reducedMotion = useReducedMotion();
-  const ref = useRef<HTMLElement | null>(null);
-  const projectDetailsHref = `/work/${project.slug}`;
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-  const y = useTransform(scrollYProgress, [0, 1], reducedMotion ? [0, 0] : [18, -18]);
+export function ProjectCard({ project }: ProjectCardProps) {
+  const frameStatus = deriveStatus(project.status);
+  const detailsHref = `/work/${project.slug}`;
 
   return (
-    <motion.div style={{ y }} className={priority ? "lg:col-span-2" : undefined}>
-      <article ref={ref} className="glass-panel group h-full overflow-hidden p-6 transition hover:scale-[1.01]">
-        <Link href={projectDetailsHref} className="block">
-          <div className="relative isolate aspect-video overflow-hidden rounded-[1.4rem]">
+    <div className="shimmer-hover h-full">
+      <TerminalFrame
+        title={`~/work/${project.slug}.case`}
+        status={frameStatus}
+        className="h-full"
+        bodyClassName="flex flex-col"
+      >
+        <Link href={detailsHref} className="flex h-full flex-col gap-5">
+          <div className="relative aspect-video overflow-hidden border border-line">
             <Image
               src={project.heroImage}
               alt={`${project.title} preview`}
               fill
-              className="object-cover transition duration-500 group-hover:scale-[1.02]"
+              className="object-cover transition duration-500 hover:scale-[1.02]"
               sizes="(max-width: 768px) 100vw, 50vw"
-              priority={priority}
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface/70 via-surface/10 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-base/60 via-transparent to-transparent" />
             <span
-              className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-surface/60 text-white shadow-lg backdrop-blur-md transition group-hover:border-accent/50 group-hover:text-accent"
+              className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center border border-line-strong bg-base/80 text-fg backdrop-blur"
               aria-hidden="true"
             >
-              <ArrowUpRight className="h-4 w-4 shrink-0" />
+              <ArrowUpRight className="h-3.5 w-3.5" />
             </span>
           </div>
 
-          <div className={`liquid-glass relative mt-5 rounded-[1.6rem] bg-gradient-to-br ${project.accent} p-6`}>
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-slate-300">{project.status}</p>
-            <h3 className="mt-3 font-serif text-3xl text-white">{project.title}</h3>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200">{project.tagline}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.metrics.map((metric) => (
-                <span key={metric.label} className="liquid-glass rounded-full px-3 py-1 text-xs text-slate-200">
-                  <span className="text-accent">{metric.value}</span> · {metric.label}
-                </span>
-              ))}
-            </div>
+          <h3 className="font-serif text-3xl text-fg">{project.title}</h3>
+
+          <p className="font-mono text-[13px] leading-6 text-fg-muted">
+            <span className="text-fg-dim">// </span>
+            {project.tagline}
+          </p>
+
+          <div className="grid gap-y-1 font-mono text-[12px]">
+            {project.metrics.map((metric) => (
+              <div key={metric.label}>
+                <span className="text-fg-dim">{snakeCase(metric.label)}</span>
+                <span className="text-fg-dim"> = </span>
+                <span className="text-accent">&quot;{metric.value}&quot;</span>
+              </div>
+            ))}
           </div>
 
-          <p className="mt-5 text-base leading-7 text-slate-300">{project.summary}</p>
+          <p className="mt-auto flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.18em] text-fg transition group-hover:text-accent">
+            → open project_details
+          </p>
         </Link>
-      </article>
-    </motion.div>
+      </TerminalFrame>
+    </div>
   );
 }

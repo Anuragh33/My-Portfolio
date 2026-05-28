@@ -12,14 +12,19 @@ export const metadata = createPageMetadata({
 
 export default function WorkPage() {
   return (
-    <div className="content-grid section-space">
-      <Reveal>
-        <SectionHeading
-          eyebrow="Work archive"
-          title="A project-first portfolio built around product shape, system depth, and AI leverage."
-          description="These are the products and platforms that best reflect how I think about building useful software."
-        />
-      </Reveal>
+    <div className="content-grid pt-6">
+      <p className="font-mono text-[12px] text-fg-muted">
+        <span className="text-accent">$</span> ls ~/work/
+      </p>
+      <div className="mt-4">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Work"
+            title="Projects shaped around product, systems, and AI leverage."
+            description="The products and platforms that best reflect how I build."
+          />
+        </Reveal>
+      </div>
       <WorkGrid />
     </div>
   );

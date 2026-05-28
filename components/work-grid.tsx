@@ -18,27 +18,31 @@ export function WorkGrid() {
 
   return (
     <>
-      <div className="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
+      <div
+        className="mt-6 flex flex-wrap items-center gap-2 font-mono text-[11px]"
+        role="group"
+        aria-label="Filter projects"
+      >
+        <span className="text-fg-dim">grep --filter</span>
         {workFilters.map((filter) => (
           <button
             key={filter.id}
             type="button"
-            role="tab"
-            aria-selected={activeFilter === filter.id}
+            aria-pressed={activeFilter === filter.id}
             onClick={() => setActiveFilter(filter.id)}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+            className={`border px-3 py-1 uppercase tracking-[0.18em] transition ${
               activeFilter === filter.id
-                ? "bg-accent text-onAccent"
-                : "liquid-glass text-slate-200 hover:text-white"
+                ? "border-accent bg-accent text-onAccent"
+                : "border-line-strong text-fg-muted hover:border-accent hover:text-accent"
             }`}
           >
             {filter.label}
           </button>
         ))}
       </div>
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+      <div className="mt-6 grid gap-6 lg:auto-rows-fr lg:grid-cols-2">
         {filtered.map((project, index) => (
-          <Reveal key={project.slug} delay={index * 0.05}>
+          <Reveal key={project.slug} delay={index * 0.05} className="h-full">
             <ProjectCard project={project} />
           </Reveal>
         ))}

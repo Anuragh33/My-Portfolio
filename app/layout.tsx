@@ -2,10 +2,11 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 import { AmbientBackground } from "@/components/ambient-background";
+import { FileMenu } from "@/components/file-menu";
 import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
-import { instrumentSerif, inter } from "@/lib/fonts";
+import { StatusBar } from "@/components/status-bar";
+import { instrumentSerif, jetbrainsMono } from "@/lib/fonts";
 import { siteMeta } from "@/lib/data";
 import { siteUrl } from "@/lib/metadata";
 
@@ -33,18 +34,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
+    <html lang="en" className={`${jetbrainsMono.variable} ${instrumentSerif.variable}`}>
       <body>
         <JsonLd />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
         <AmbientBackground />
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <div className="content-grid">
+        <FileMenu />
+        <main id="main-content" className="relative z-10 pb-16 pt-10">
+          {children}
+        </main>
+        <div className="content-grid relative z-10 pb-16">
           <SiteFooter />
         </div>
+        <StatusBar />
         <Analytics />
       </body>
     </html>

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { TerminalFrame } from "@/components/terminal-frame";
 import { buildLog } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 import { formatDate } from "@/lib/utils";
@@ -14,40 +15,40 @@ export const metadata = createPageMetadata({
 
 export default function BuildLogPage() {
   return (
-    <div className="content-grid section-space">
-      <Reveal>
-        <SectionHeading
-          eyebrow="Build log / experiments"
-          title="A running note of how I think through products, systems, and interaction."
-          description="These notes are intentionally short and direct. They are snapshots of the ideas shaping the products I build."
-        />
-      </Reveal>
-      <div className="mt-10 space-y-6">
+    <div className="content-grid pt-6">
+      <p className="font-mono text-[12px] text-fg-muted">
+        <span className="text-accent">$</span> ls ~/build-log/
+      </p>
+      <div className="mt-4">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Build log"
+            title="A running note on how I think through products, systems, and interaction."
+            description="Short, direct snapshots of the ideas shaping the products I build."
+          />
+        </Reveal>
+      </div>
+      <div className="mt-8 space-y-5">
         {buildLog.map((entry, index) => (
           <Reveal key={entry.slug} delay={index * 0.05}>
-            <article className="glass-panel p-6">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="liquid-glass rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-[0.24em] text-accent">
-                  {entry.topic}
-                </span>
-                <span className="text-sm text-slate-500">{formatDate(entry.date)}</span>
+            <TerminalFrame title={`${entry.date}_${entry.slug}.log`}>
+              <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em]">
+                <span className="border border-line px-2 py-0.5 text-accent">{entry.topic}</span>
+                <span className="text-fg-muted">{formatDate(entry.date)}</span>
               </div>
-              <h2 className="mt-5 font-serif text-3xl text-white">{entry.title}</h2>
-              <p className="mt-4 text-lg leading-8 text-slate-300">{entry.summary}</p>
-              <div className="mt-6 space-y-4">
-                {entry.content.slice(0, 1).map((paragraph) => (
-                  <p key={paragraph} className="text-base leading-8 text-slate-400">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+              <h2 className="mt-4 font-serif text-3xl text-fg">{entry.title}</h2>
+              <p className="mt-4 font-mono text-[14px] leading-7 text-fg-muted">
+                <span className="text-fg-dim">// </span>
+                {entry.summary}
+              </p>
+              <p className="mt-4 font-mono text-[13px] leading-7 text-fg-muted">{entry.content[0]}</p>
               <Link
                 href={`/build-log/${entry.slug}`}
-                className="mt-6 inline-flex text-sm text-slate-200 underline decoration-white/20 underline-offset-4 transition hover:text-white"
+                className="mt-6 inline-flex font-mono text-[12px] uppercase tracking-[0.18em] text-fg transition hover:text-accent"
               >
-                Read full note
+                $ cat full_note
               </Link>
-            </article>
+            </TerminalFrame>
           </Reveal>
         ))}
       </div>

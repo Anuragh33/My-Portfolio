@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { TerminalFrame } from "@/components/terminal-frame";
 import { careerBridge } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -19,19 +20,24 @@ export const metadata = createPageMetadata({
 
 export default function AboutPage() {
   return (
-    <div className="content-grid section-space">
-      <Reveal>
-        <SectionHeading
-          eyebrow="About"
-          title="I like building products where engineering depth is visible in the experience."
-          description="My background spans enterprise-grade systems, agentic AI workflows, and independent product building. The overlap between those worlds is where I do my best work."
-        />
-      </Reveal>
-
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+    <div className="content-grid pt-6">
+      <p className="font-mono text-[12px] text-fg-muted">
+        <span className="text-accent">$</span> cat ~/about/whoami.txt
+      </p>
+      <div className="mt-4">
         <Reveal>
-          <div className="glass-panel p-6">
-            <div className="space-y-5 text-base leading-8 text-slate-300">
+          <SectionHeading
+            eyebrow="About"
+            title="I build products where engineering depth is visible in the experience."
+            description="My background spans enterprise-grade systems, agentic AI workflows, and independent product building."
+          />
+        </Reveal>
+      </div>
+
+      <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <Reveal>
+          <TerminalFrame title="whoami.txt">
+            <div className="space-y-5 font-mono text-[13px] leading-7 text-fg-muted">
               <p>
                 Professionally, I have worked on enterprise software and agentic AI systems where reliability, privacy, and workflow clarity matter. That taught me how to think about scale, architecture, and product constraints in serious environments.
               </p>
@@ -43,17 +49,20 @@ export default function AboutPage() {
                 Together, those sides shape how I operate: grounded enough to ship real systems, curious enough to keep making them feel new.
               </p>
             </div>
-          </div>
+          </TerminalFrame>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="glass-panel p-6">
-            <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">Operating principles</p>
-            <ul className="mt-5 space-y-4 text-base leading-8 text-slate-300">
+          <TerminalFrame title="principles.txt">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// operating principles</p>
+            <ul className="mt-4 space-y-3 font-mono text-[13px] leading-7 text-fg-muted">
               {principles.map((principle) => (
-                <li key={principle}>{principle}</li>
+                <li key={principle}>
+                  <span className="text-fg-dim">- </span>
+                  {principle}
+                </li>
               ))}
             </ul>
-          </div>
+          </TerminalFrame>
         </Reveal>
       </div>
     </div>

@@ -1,8 +1,8 @@
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 
-export const inter = Inter({
+export const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-mono",
   display: "swap"
 });
 

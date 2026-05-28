@@ -16,6 +16,12 @@ const initialState: FormState = {
   context: "recruiting"
 };
 
+const contextOptions: Array<{ value: FormState["context"]; label: string }> = [
+  { value: "recruiting", label: "recruiting" },
+  { value: "client-work", label: "client-work" },
+  { value: "collaboration", label: "collaboration" }
+];
+
 export function ContactForm() {
   const [formState, setFormState] = useState<FormState>(initialState);
   const [response, setResponse] = useState<string | null>(null);
@@ -40,9 +46,7 @@ export function ContactForm() {
     startTransition(async () => {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formState, website: honeypot })
       });
 
@@ -58,105 +62,109 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="glass-panel p-6" noValidate>
-      <div className="grid gap-5 md:grid-cols-2">
-        <div>
-          <label htmlFor={nameId} className="mb-2 block text-sm text-slate-300">
-            Name
-          </label>
+    <form onSubmit={onSubmit} noValidate className="border border-line-strong bg-panel font-mono">
+      <div className="flex items-center gap-2 border-b border-line-strong bg-elevated px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-fg-muted">
+        <span className="text-accent">$</span>
+        <span>mail anuragh -s &quot;{formState.context}&quot;</span>
+      </div>
+
+      <div className="divide-y divide-line text-[13px]">
+        <div className="grid grid-cols-[90px_1fr] items-baseline gap-3 px-4 py-2.5">
+          <label htmlFor={nameId} className="text-fg-dim">From:</label>
           <input
             id={nameId}
             name="name"
             required
+            autoComplete="name"
             value={formState.name}
             onChange={(event) => updateField("name", event.target.value)}
-            className="glass-field w-full px-4 py-3 text-white outline-none transition focus:ring-1 focus:ring-accent/60"
+            className="bg-transparent text-fg outline-none placeholder:text-fg-dim"
+            placeholder="your name"
           />
         </div>
-        <div>
-          <label htmlFor={emailId} className="mb-2 block text-sm text-slate-300">
-            Email
-          </label>
+
+        <div className="grid grid-cols-[90px_1fr] items-baseline gap-3 px-4 py-2.5">
+          <label htmlFor={emailId} className="text-fg-dim">Reply-To:</label>
           <input
             id={emailId}
             name="email"
             required
             type="email"
+            autoComplete="email"
             value={formState.email}
             onChange={(event) => updateField("email", event.target.value)}
-            className="glass-field w-full px-4 py-3 text-white outline-none transition focus:ring-1 focus:ring-accent/60"
+            className="bg-transparent text-fg outline-none placeholder:text-fg-dim"
+            placeholder="you@somewhere.com"
+          />
+        </div>
+
+        <div className="grid grid-cols-[90px_1fr] items-baseline gap-3 px-4 py-2.5">
+          <label htmlFor={contextId} className="text-fg-dim">Subject:</label>
+          <select
+            id={contextId}
+            name="context"
+            value={formState.context}
+            onChange={(event) => updateField("context", event.target.value as FormState["context"])}
+            className="bg-transparent text-fg outline-none"
+          >
+            {contextOptions.map((option) => (
+              <option key={option.value} value={option.value} className="bg-elevated text-fg">
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="sr-only" aria-hidden="true">
+          <label htmlFor={honeypotId}>Website</label>
+          <input
+            id={honeypotId}
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(event) => setHoneypot(event.target.value)}
+          />
+        </div>
+
+        <div className="px-4 py-2.5">
+          <label htmlFor={messageId} className="text-fg-dim">Body:</label>
+          <textarea
+            id={messageId}
+            name="message"
+            required
+            rows={8}
+            value={formState.message}
+            onChange={(event) => updateField("message", event.target.value)}
+            className="mt-2 w-full bg-transparent text-fg outline-none placeholder:text-fg-dim"
+            placeholder="what are you building, hiring for, or noodling on?"
           />
         </div>
       </div>
-      <div className="mt-5">
-        <label htmlFor={contextId} className="mb-2 block text-sm text-slate-300">
-          Context
-        </label>
-        <select
-          id={contextId}
-          name="context"
-          value={formState.context}
-          onChange={(event) => updateField("context", event.target.value as FormState["context"])}
-          className="glass-field w-full px-4 py-3 text-white outline-none transition focus:ring-1 focus:ring-accent/60"
-        >
-          <option value="recruiting">Recruiting</option>
-          <option value="client-work">Client work</option>
-          <option value="collaboration">Collaboration</option>
-        </select>
-      </div>
-      <div className="sr-only" aria-hidden="true">
-        <label htmlFor={honeypotId}>Website</label>
-        <input
-          id={honeypotId}
-          name="website"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-          value={honeypot}
-          onChange={(event) => setHoneypot(event.target.value)}
-        />
-      </div>
-      <div className="mt-5">
-        <label htmlFor={messageId} className="mb-2 block text-sm text-slate-300">
-          Message
-        </label>
-        <textarea
-          id={messageId}
-          name="message"
-          required
-          rows={6}
-          value={formState.message}
-          onChange={(event) => updateField("message", event.target.value)}
-          className="glass-field w-full rounded-[1.6rem] px-4 py-3 text-white outline-none transition focus:ring-1 focus:ring-accent/60"
-        />
-      </div>
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+      <div className="flex flex-col gap-3 border-t border-line-strong bg-elevated px-4 py-3 text-[12px] sm:flex-row sm:items-center sm:justify-between">
         <button
           type="submit"
           disabled={isPending}
-          className="liquid-glass rounded-full px-6 py-3 text-sm font-medium text-white transition hover:text-accent disabled:cursor-not-allowed disabled:opacity-70"
+          className="border border-accent bg-accent/10 px-4 py-2 uppercase tracking-[0.18em] text-accent transition hover:bg-accent hover:text-onAccent disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {isPending ? "Sending..." : "Send message"}
+          {isPending ? "Sending..." : "[ENTER] Send"}
         </button>
-        <p className="text-sm leading-6 text-slate-400">
-          Prefer direct email?{" "}
-          <a href="mailto:anuraghragidimilli@icloud.com" className="text-slate-200 underline decoration-white/20 underline-offset-4">
-            anuraghragidimilli@icloud.com
+        <p className="text-fg-muted">
+          or{" "}
+          <a href="mailto:anuraghragidimilli@icloud.com" className="text-fg underline decoration-line-strong underline-offset-4 hover:text-accent">
+            $ mail anuragh@icloud.com
           </a>
         </p>
       </div>
-      <div aria-live="polite" aria-atomic="true" className="mt-5">
-        {response ? (
-          <div
-            className={`liquid-glass rounded-2xl px-4 py-3 text-sm ${
-              isError ? "text-amber-200" : "text-slate-200"
-            }`}
-            role={isError ? "alert" : "status"}
-          >
-            {response}
-          </div>
-        ) : null}
-      </div>
+
+      {response ? (
+        <div aria-live="polite" aria-atomic="true" className="border-t border-line-strong px-4 py-3 text-[12px]" role={isError ? "alert" : "status"}>
+          <span className="text-fg-dim">[output] </span>
+          <span className={isError ? "text-warn" : "text-success"}>{response}</span>
+        </div>
+      ) : null}
     </form>
   );
 }

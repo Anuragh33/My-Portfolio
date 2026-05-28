@@ -1,92 +1,122 @@
 "use client";
 
-import gsap from "gsap";
-import { ArrowRight, Download } from "lucide-react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-import { HeroBackdrop } from "@/components/hero-backdrop";
-import { siteMeta } from "@/lib/data";
+import { TerminalFrame } from "@/components/terminal-frame";
+import { getFeaturedProjects, siteMeta } from "@/lib/data";
+
+const projectCount = getFeaturedProjects().length;
+const tickerLine = `> status: ${projectCount}_projects_live · stack: next-fastapi-tauri · role: full-stack-ai`;
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } }
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+};
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const reducedMotion = useReducedMotion();
+  const router = useRouter();
+  const [tickerText, setTickerText] = useState(tickerLine);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) {
+    if (reducedMotion) {
+      setTickerText(tickerLine);
       return;
     }
+    setTickerText("");
+    let i = 0;
+    const id = window.setInterval(() => {
+      i += 1;
+      setTickerText(tickerLine.slice(0, i));
+      if (i >= tickerLine.length) {
+        window.clearInterval(id);
+      }
+    }, 22);
+    return () => window.clearInterval(id);
+  }, [reducedMotion]);
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const items = section.querySelectorAll<HTMLElement>("[data-hero-item]");
-
-    if (prefersReducedMotion) {
-      items.forEach((item) => {
-        item.style.opacity = "1";
-        item.style.transform = "none";
-      });
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        "[data-hero-item]",
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: "power3.out" }
-      );
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) return;
+      if (event.key === "F1") {
+        event.preventDefault();
+        window.open(siteMeta.resumePath, "_blank", "noopener,noreferrer");
+      } else if (event.key === "F2") {
+        event.preventDefault();
+        router.push("/work");
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [router]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative isolate min-h-screen overflow-hidden bg-base text-white"
-      aria-label="Introduction"
-    >
-      <HeroBackdrop />
-
-      <div className="relative z-20 mx-auto flex min-h-screen max-w-7xl flex-col items-start justify-center px-6 pb-16 pt-28 lg:px-10 lg:pb-20">
-        <p
-          data-hero-item
-          className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent opacity-0"
+    <TerminalFrame title="~/anuragh-ragidimilli/session.txt">
+      <motion.div
+        initial={reducedMotion ? "visible" : "hidden"}
+        animate="visible"
+        variants={containerVariants}
+        className="flex flex-col gap-6 py-2 sm:py-4"
+      >
+        <motion.p
+          variants={itemVariants}
+          className="font-mono text-[12px] tracking-wide text-fg-muted sm:text-[13px]"
         >
-          {siteMeta.title}
-        </p>
-        <h1
-          data-hero-item
-          className="mt-5 max-w-4xl font-serif text-[40px] font-normal leading-[0.95] tracking-tight text-white opacity-0 sm:text-[58px] lg:text-[72px]"
+          {tickerText}
+          <span className="text-accent">_</span>
+        </motion.p>
+
+        <motion.h1
+          variants={itemVariants}
+          className="max-w-4xl font-serif text-[44px] leading-[1.02] tracking-tight text-fg sm:text-[64px] lg:text-[78px]"
         >
           {siteMeta.name}
           <span className="text-accent">.</span>
-        </h1>
-        <p
-          data-hero-item
-          className="mt-6 max-w-[540px] text-[15px] leading-7 text-white/75 opacity-0"
+          <span className="block-caret" aria-hidden="true" />
+        </motion.h1>
+
+        <motion.p
+          variants={itemVariants}
+          className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent"
+        >
+          {siteMeta.title}
+        </motion.p>
+
+        <motion.p
+          variants={itemVariants}
+          className="max-w-2xl font-mono text-[14px] leading-7 text-fg-muted"
         >
           {siteMeta.hero}
-        </p>
+        </motion.p>
 
-        <div data-hero-item className="mt-9 flex flex-wrap gap-3 opacity-0">
+        <motion.div variants={itemVariants} className="mt-2 flex flex-wrap gap-3">
           <a
             href={siteMeta.resumePath}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-full bg-accent px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.14em] text-onAccent shadow-[0_0_40px_rgba(96,165,250,0.35)] transition hover:scale-[1.03] active:scale-[0.97]"
+            className="inline-flex items-center gap-2 border border-accent bg-accent/10 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.18em] text-accent transition hover:bg-accent hover:text-onAccent"
           >
-            Download resume
-            <Download size={17} strokeWidth={2} />
+            <span className="text-[11px] text-fg-muted">[F1]</span>
+            Download Resume
           </a>
           <Link
             href="/work"
-            className="liquid-glass inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.14em] text-white transition hover:text-accent"
+            className="inline-flex items-center gap-2 border border-line-strong px-4 py-2 font-mono text-[12px] uppercase tracking-[0.18em] text-fg transition hover:border-accent hover:text-accent"
           >
-            View selected work
-            <ArrowRight size={17} strokeWidth={2} />
+            <span className="text-[11px] text-fg-muted">[F2]</span>
+            View Work
           </Link>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </TerminalFrame>
   );
 }

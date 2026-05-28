@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ProjectImpact } from "@/components/project-impact";
 import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
+import { TerminalFrame, type FrameStatus } from "@/components/terminal-frame";
 import { getProject, projects } from "@/lib/data";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
+
+function deriveStatus(status: string): FrameStatus {
+  const lower = status.toLowerCase();
+  if (lower.includes("in progress")) return "wip";
+  if (lower.includes("shipped")) return "shipped";
+  return "live";
+}
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -40,11 +48,17 @@ export default async function ProjectPage({ params }: PageProps) {
     notFound();
   }
 
+  const frameStatus = deriveStatus(project.status);
+
   return (
-    <div className="content-grid section-space">
-      <Reveal>
-        <div className={`glass-panel-strong overflow-hidden bg-gradient-to-br ${project.accent} p-8`}>
-          <div className="relative mb-8 aspect-video overflow-hidden rounded-[1.6rem]">
+    <div className="content-grid pt-6">
+      <p className="font-mono text-[12px] text-fg-muted">
+        <span className="text-accent">$</span> cat ~/work/{project.slug}.case
+      </p>
+
+      <Reveal className="mt-4">
+        <TerminalFrame title={`~/work/${project.slug}.case`} status={frameStatus}>
+          <div className="relative mb-6 aspect-video overflow-hidden border border-line">
             <Image
               src={project.heroImage}
               alt={`${project.title} preview`}
@@ -54,115 +68,137 @@ export default async function ProjectPage({ params }: PageProps) {
               priority
             />
           </div>
-          <p className="font-mono text-xs uppercase tracking-[0.32em] text-slate-300">{project.status}</p>
-          <h1 className="mt-5 max-w-4xl font-serif text-5xl text-white sm:text-6xl">{project.title}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-100">{project.tagline}</p>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <div className="liquid-glass rounded-[1.4rem] p-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-slate-400">Role</p>
-              <p className="mt-2 text-sm text-white">{project.role}</p>
+
+          <h1 className="font-serif text-5xl text-fg sm:text-6xl">
+            {project.title}
+            <span className="text-accent">.</span>
+          </h1>
+          <p className="mt-2 font-mono text-[12px] uppercase tracking-[0.22em] text-fg-muted">{project.status}</p>
+          <p className="mt-6 max-w-3xl font-mono text-[14px] leading-7 text-fg">
+            <span className="text-fg-dim">// </span>
+            {project.tagline}
+          </p>
+
+          <div className="mt-6 grid gap-3 font-mono text-[12px] text-fg-muted md:grid-cols-3">
+            <div>
+              <span className="text-fg-dim">role</span> <span className="text-fg-dim">=</span>{" "}
+              <span className="text-accent">&quot;{project.role}&quot;</span>
             </div>
-            <div className="liquid-glass rounded-[1.4rem] p-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-slate-400">Timeline</p>
-              <p className="mt-2 text-sm text-white">{project.timeline}</p>
+            <div>
+              <span className="text-fg-dim">timeline</span> <span className="text-fg-dim">=</span>{" "}
+              <span className="text-accent">&quot;{project.timeline}&quot;</span>
             </div>
-            <div className="liquid-glass rounded-[1.4rem] p-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-slate-400">Stack</p>
-              <p className="mt-2 text-sm text-white">{project.stack.slice(0, 4).join(" · ")}</p>
+            <div>
+              <span className="text-fg-dim">stack</span> <span className="text-fg-dim">=</span>{" "}
+              <span className="text-accent">&quot;{project.stack.slice(0, 4).join(" / ")}&quot;</span>
             </div>
           </div>
-        </div>
+        </TerminalFrame>
       </Reveal>
 
       <ProjectImpact project={project} />
 
-      <div className="mt-12 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
         <Reveal>
-          <div className="space-y-10">
-            <section className="glass-panel p-6">
-              <SectionHeading
-                eyebrow="Project summary"
-                title="What this project set out to do."
-                description={project.summary}
-              />
-            </section>
+          <div className="flex flex-col gap-6">
+            <TerminalFrame title="summary.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// summary</p>
+              <p className="mt-3 font-mono text-[14px] leading-7 text-fg">{project.summary}</p>
+            </TerminalFrame>
 
-            <section className="glass-panel p-6 prose-invert">
-              <h2 className="font-serif text-3xl text-white">Problem / opportunity</h2>
-              <p className="mt-5">{project.problem}</p>
-              <h2 className="mt-8 font-serif text-3xl text-white">What I built</h2>
-              <p className="mt-5">{project.solution}</p>
-              <h2 className="mt-8 font-serif text-3xl text-white">Core experience</h2>
-              <ul className="mt-5 space-y-3 text-base leading-8 text-slate-300">
+            <TerminalFrame title="problem.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// problem</p>
+              <p className="mt-3 font-mono text-[14px] leading-7 text-fg">{project.problem}</p>
+              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// what I built</p>
+              <p className="mt-3 font-mono text-[14px] leading-7 text-fg">{project.solution}</p>
+              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// core experience</p>
+              <ul className="mt-3 space-y-2 font-mono text-[13px] leading-7 text-fg-muted">
                 {project.coreExperience.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <span className="text-fg-dim">- </span>
+                    {item}
+                  </li>
                 ))}
               </ul>
-            </section>
+            </TerminalFrame>
 
-            <section className="glass-panel p-6 prose-invert">
-              <h2 className="font-serif text-3xl text-white">Architecture and stack</h2>
-              <ul className="mt-5 space-y-3 text-base leading-8 text-slate-300">
+            <TerminalFrame title="architecture.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// architecture</p>
+              <ul className="mt-3 space-y-2 font-mono text-[13px] leading-7 text-fg-muted">
                 {project.architecture.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <span className="text-fg-dim">- </span>
+                    {item}
+                  </li>
                 ))}
               </ul>
-              <h2 className="mt-8 font-serif text-3xl text-white">AI support and systems layer</h2>
-              <p className="mt-5">{project.aiInvolvement}</p>
-            </section>
+              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// ai involvement</p>
+              <p className="mt-3 font-mono text-[14px] leading-7 text-fg">{project.aiInvolvement}</p>
+            </TerminalFrame>
 
-            <section className="glass-panel p-6 prose-invert">
-              <h2 className="font-serif text-3xl text-white">Challenges and decisions</h2>
-              <ul className="mt-5 space-y-3 text-base leading-8 text-slate-300">
+            <TerminalFrame title="challenges.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// challenges</p>
+              <ul className="mt-3 space-y-2 font-mono text-[13px] leading-7 text-fg-muted">
                 {project.challenges.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <span className="text-fg-dim">- </span>
+                    {item}
+                  </li>
                 ))}
               </ul>
-              <h2 className="mt-8 font-serif text-3xl text-white">Outcome / current status</h2>
-              <p className="mt-5">{project.outcome}</p>
-            </section>
+              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// outcome</p>
+              <p className="mt-3 font-mono text-[14px] leading-7 text-fg">{project.outcome}</p>
+            </TerminalFrame>
           </div>
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div className="space-y-8">
-            <section className="glass-panel p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-pulse">Why this matters</p>
-              <p className="mt-5 text-base leading-8 text-slate-300">{project.whyItMatters}</p>
-            </section>
+          <div className="flex flex-col gap-6">
+            <TerminalFrame title="why.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// why this matters</p>
+              <p className="mt-3 font-mono text-[13px] leading-7 text-fg">{project.whyItMatters}</p>
+            </TerminalFrame>
 
-            <section className="glass-panel p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-pulse">Reflection</p>
-              <p className="mt-5 text-base leading-8 text-slate-300">{project.reflection}</p>
-            </section>
+            <TerminalFrame title="reflection.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// reflection</p>
+              <p className="mt-3 font-mono text-[13px] leading-7 text-fg">{project.reflection}</p>
+            </TerminalFrame>
 
-            <section className="glass-panel p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-pulse">Capabilities</p>
-              <div className="mt-5 flex flex-wrap gap-2">
+            <TerminalFrame title="capabilities.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// capabilities</p>
+              <div className="mt-3 flex flex-wrap gap-1 font-mono text-[11px] text-fg-muted">
                 {project.capabilities.map((capability) => (
-                  <span key={capability} className="liquid-glass rounded-full px-3 py-1 text-sm text-slate-200">
+                  <span key={capability} className="border border-line px-2 py-0.5">
                     {capability}
                   </span>
                 ))}
               </div>
-            </section>
+            </TerminalFrame>
 
-            <section className="glass-panel p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.28em] text-pulse">Links</p>
-              <div className="mt-5 space-y-3">
+            <TerminalFrame title="links.md">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// links</p>
+              <ul className="mt-3 space-y-2 font-mono text-[13px] text-fg-muted">
                 {project.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="liquid-glass block rounded-2xl px-4 py-3 text-sm text-slate-200 transition hover:text-accent"
-                  >
-                    {link.label}
-                  </a>
+                  <li key={link.label}>
+                    <span className="text-fg-dim">$ </span>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-fg transition hover:text-accent"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href} className="text-fg transition hover:text-accent">
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
                 ))}
-              </div>
-            </section>
+              </ul>
+            </TerminalFrame>
           </div>
         </Reveal>
       </div>

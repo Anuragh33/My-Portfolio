@@ -51,8 +51,6 @@ export const siteMeta = {
   name: "Anuragh Ragidimilli",
   title: "Full-Stack AI Developer",
   email: "anuraghragidimilli@icloud.com",
-  /** Resend test mode delivers only here until a domain is verified at resend.com/domains */
-  resendDeliveryEmail: "n374r654@wichita.edu",
   github: "https://github.com/Anuragh33",
   linkedin: "https://www.linkedin.com/in/anuraghragidimilli/",
   url: "https://anuragh-portfolio.vercel.app",
@@ -61,8 +59,7 @@ export const siteMeta = {
   hero:
     "Full-Stack AI Developer with 3.5+ years of experience building intelligent products, scalable systems, and applied AI workflows end to end.",
   subhero:
-    "I build production-grade full-stack products and embed AI where it creates real leverage.",
-  personality: ["Product builder", "Systems thinker", "Curious experimentalist"]
+    "I build production-grade full-stack products and embed AI where it creates real leverage."
 };
 
 export const careerBridge =
@@ -73,6 +70,13 @@ export const proofPoints = [
   "Enterprise AI and agentic workflows",
   "Next.js, TypeScript, Python, FastAPI",
   "Healthcare systems, product engineering, and automation"
+];
+
+export const outcomes: Array<{ value: string; label: string }> = [
+  { value: "3.5+", label: "years production experience" },
+  { value: "200+", label: "bots supported through Bot Center" },
+  { value: "4", label: "featured projects shipped" },
+  { value: "AI", label: "workflows built for real leverage" }
 ];
 
 export const workFilters = [
@@ -104,6 +108,16 @@ export const capabilities = [
     title: "Modern Interfaces",
     description:
       "Premium, responsive UI systems that make complex products feel clear, fast, and trustworthy."
+  }
+];
+
+export const education = [
+  {
+    degree: "MS, Computer Science",
+    school: "Wichita State University",
+    timeline: "2021 – 2023",
+    detail:
+      "Graduate coursework spanning machine learning, distributed systems, and applied AI, completed between Wipro and UnitedHealth Group."
   }
 ];
 

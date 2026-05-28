@@ -1,60 +1,62 @@
 import type { Project } from "@/lib/data";
 
+import { TerminalFrame } from "@/components/terminal-frame";
+
 type ProjectImpactProps = {
   project: Project;
 };
 
 export function ProjectImpact({ project }: ProjectImpactProps) {
-  const demoLink = project.links.find((link) => link.kind === "demo");
-  const repoLink = project.links.find((link) => link.kind === "repo");
-  const detailsLink = `/work/${project.slug}`;
+  const demo = project.links.find((link) => link.kind === "demo");
+  const repo = project.links.find((link) => link.kind === "repo");
+  const detailsHref = `/work/${project.slug}`;
 
   return (
-    <section className="glass-panel mt-8 p-6 lg:p-8" aria-label="Impact at a glance">
-      <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">Impact at a glance</p>
-      <ul className="mt-5 space-y-3 text-base leading-7 text-slate-200">
+    <TerminalFrame title="impact.md" className="mt-6">
+      <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// Impact at a glance</p>
+      <ul className="mt-4 space-y-2 font-mono text-[13px] leading-6 text-fg-muted">
         {project.impactBullets.map((bullet) => (
-          <li key={bullet} className="flex gap-3">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-            <span>{bullet}</span>
+          <li key={bullet}>
+            <span className="text-fg-dim">- </span>
+            {bullet}
           </li>
         ))}
       </ul>
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap gap-1 font-mono text-[11px] text-fg-muted">
         {project.stack.map((tech) => (
-          <span key={tech} className="liquid-glass rounded-full px-3 py-1 text-xs text-slate-200">
+          <span key={tech} className="border border-line px-2 py-0.5">
             {tech}
           </span>
         ))}
       </div>
-      <div className="mt-6 flex flex-wrap gap-3">
-        {demoLink ? (
+      <div className="mt-5 flex flex-wrap gap-2 font-mono text-[12px]">
+        {demo ? (
           <a
-            href={demoLink.href}
+            href={demo.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-accent px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-onAccent transition hover:scale-[1.03]"
+            className="border border-accent bg-accent/10 px-4 py-2 uppercase tracking-[0.18em] text-accent transition hover:bg-accent hover:text-onAccent"
           >
-            Live demo
+            $ open demo
           </a>
         ) : null}
-        {repoLink ? (
+        {repo ? (
           <a
-            href={repoLink.href}
+            href={repo.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="liquid-glass rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:text-accent"
+            className="border border-line-strong px-4 py-2 uppercase tracking-[0.18em] text-fg transition hover:border-accent hover:text-accent"
           >
-            GitHub
+            $ git clone
           </a>
         ) : null}
         <a
-          href={detailsLink}
-          className="liquid-glass rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:text-accent"
+          href={detailsHref}
+          className="border border-line-strong px-4 py-2 uppercase tracking-[0.18em] text-fg transition hover:border-accent hover:text-accent"
         >
-          Project details
+          $ cat details
         </a>
       </div>
-    </section>
+    </TerminalFrame>
   );
 }

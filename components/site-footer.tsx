@@ -5,37 +5,32 @@ import { siteMeta } from "@/lib/data";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 pb-10 pt-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 lg:flex-row lg:items-end lg:justify-between lg:px-10">
+    <footer className="border-t border-line-strong pt-6">
+      <div className="flex flex-col gap-5 font-mono text-[12px] text-fg-muted lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-xl">
-          <p className="text-2xl font-extrabold text-white">{siteMeta.name}</p>
-          <p className="mt-2 text-sm leading-7 text-slate-400">
+          <p className="text-[13px] text-fg">
+            <span className="text-fg-dim">$</span> echo &quot;{siteMeta.name}&quot;
+          </p>
+          <p className="mt-2 leading-6 text-fg-muted">
+            <span className="text-fg-dim">// </span>
             Full-stack AI developer building intelligent products from interface to infrastructure.
           </p>
-          <SocialLinks className="mt-5" showEmail />
+          <SocialLinks className="mt-4" showEmail />
         </div>
-        <div className="flex flex-wrap gap-5 text-sm text-slate-300">
-          <Link href="/work" className="transition hover:text-white">
-            Projects
-          </Link>
-          <Link href="/build-log" className="transition hover:text-white">
-            Build log
-          </Link>
-          <Link href="/about" className="transition hover:text-white">
-            About
-          </Link>
-          <Link href="/contact" className="transition hover:text-white">
-            Contact
-          </Link>
+        <nav className="flex flex-wrap gap-4 text-fg-muted">
+          <Link href="/work" className="hover:text-accent">~/work</Link>
+          <Link href="/build-log" className="hover:text-accent">~/build-log</Link>
+          <Link href="/about" className="hover:text-accent">~/about</Link>
+          <Link href="/contact" className="hover:text-accent">~/contact</Link>
           <a
             href={siteMeta.resumePath}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition hover:text-white"
+            className="hover:text-accent"
           >
-            Resume
+            ~/resume.pdf
           </a>
-        </div>
+        </nav>
       </div>
     </footer>
   );

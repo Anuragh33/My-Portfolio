@@ -9,29 +9,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0b1016",
-        mist: "#d8e4ef",
-        steel: "#1d2834",
-        pulse: "#93c5fd",
-        acid: "#60a5fa",
-        haze: "#91a5ba",
-        accent: "var(--accent)",
-        surface: "var(--surface)",
         base: "var(--base)",
-        onAccent: "var(--on-accent)"
-      },
-      boxShadow: {
-        halo: "0 0 0 1px rgba(147, 197, 253, 0.14), 0 18px 80px rgba(8, 12, 24, 0.55)"
-      },
-      backgroundImage: {
-        noise:
-          "radial-gradient(circle at 20% 20%, rgba(147, 197, 253, 0.16), transparent 28%), radial-gradient(circle at 80% 0%, rgba(96, 165, 250, 0.12), transparent 20%), linear-gradient(135deg, rgba(255,255,255,0.04), transparent 40%)"
+        panel: "var(--panel)",
+        elevated: "var(--elevated)",
+        surface: "var(--panel)",
+        accent: "var(--accent)",
+        "accent-soft": "var(--accent-soft)",
+        onAccent: "var(--on-accent)",
+        fg: "var(--text)",
+        "fg-muted": "var(--text-muted)",
+        "fg-dim": "var(--text-dim)",
+        line: "var(--border)",
+        "line-strong": "var(--border-strong)",
+        success: "var(--success)",
+        warn: "var(--warn)",
+        error: "var(--error)",
+        // backward-compat aliases during pivot
+        ink: "var(--base)",
+        mist: "var(--text)",
+        steel: "var(--panel)",
+        pulse: "var(--accent)",
+        acid: "var(--accent-soft)",
+        haze: "var(--text-muted)"
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Segoe UI", "Helvetica Neue", "Arial", "sans-serif"],
+        sans: ["var(--font-mono)", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+        mono: ["var(--font-mono)", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
         serif: ["var(--font-serif)", "Georgia", "serif"],
-        display: ["var(--font-serif)", "Georgia", "serif"],
-        mono: ["SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"]
+        display: ["var(--font-serif)", "Georgia", "serif"]
       }
     }
   },

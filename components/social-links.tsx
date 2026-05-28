@@ -9,13 +9,13 @@ type SocialLinksProps = {
 
 export function SocialLinks({ className = "", showEmail = false }: SocialLinksProps) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`flex items-center gap-2 ${className}`}>
       <a
         href={siteMeta.github}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub profile"
-        className="liquid-glass rounded-full p-3 text-white transition hover:text-accent"
+        className="border border-line-strong p-2 text-fg transition hover:border-accent hover:text-accent"
       >
         <Github className="h-4 w-4" />
       </a>
@@ -24,7 +24,7 @@ export function SocialLinks({ className = "", showEmail = false }: SocialLinksPr
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn profile"
-        className="liquid-glass rounded-full p-3 text-white transition hover:text-accent"
+        className="border border-line-strong p-2 text-fg transition hover:border-accent hover:text-accent"
       >
         <Linkedin className="h-4 w-4" />
       </a>
@@ -32,7 +32,7 @@ export function SocialLinks({ className = "", showEmail = false }: SocialLinksPr
         <a
           href={`mailto:${siteMeta.email}`}
           aria-label="Send email"
-          className="liquid-glass rounded-full p-3 text-white transition hover:text-accent"
+          className="border border-line-strong p-2 text-fg transition hover:border-accent hover:text-accent"
         >
           <Mail className="h-4 w-4" />
         </a>
