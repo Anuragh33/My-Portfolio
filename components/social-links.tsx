@@ -10,7 +10,7 @@ type SocialLinksProps = {
 export function SocialLinks({ className = "", showEmail = false }: SocialLinksProps) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <
+      <a
         href={siteMeta.linkedin}
         target="_blank"
         rel="noopener noreferrer"
