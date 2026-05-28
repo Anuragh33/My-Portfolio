@@ -114,7 +114,7 @@ The project is ready to deploy on Vercel and is linked to GitHub: `https://githu
    - `RESEND_API_KEY`
    - `CONTACT_TO_EMAIL` (optional)
    - `CONTACT_FROM_EMAIL` (optional; use a verified domain in production)
-3. Confirm the production URL matches `siteMeta.url` in `lib/data.ts` (currently `https://anuragh-portfolio.vercel.app`).
+3. Confirm the production URL matches `siteMeta.url` in `lib/data.ts` (currently `https://anuragh.fyi`).
 
 Recommended settings:
 

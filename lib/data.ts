@@ -53,7 +53,7 @@ export const siteMeta = {
   email: "anuraghragidimilli@icloud.com",
   github: "https://github.com/Anuragh33",
   linkedin: "https://www.linkedin.com/in/anuraghragidimilli/",
-  url: "https://anuragh-portfolio.vercel.app",
+  url: "https://anuragh.fyi",
   resumePath: "/Anuragh_Resume.pdf",
   availability: "Open to full-time software engineering roles",
   hero:
