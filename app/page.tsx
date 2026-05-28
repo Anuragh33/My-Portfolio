@@ -79,7 +79,7 @@ export default function HomePage() {
                   {track.summary}
                 </p>
                 <ul className="mt-5 space-y-3 font-mono text-[13px] leading-7 text-fg-muted">
-                  {track.highlights.map((highlight) => (
+                  {track.highlights.slice(0, 4).map((highlight) => (
                     <li key={highlight}>
                       <span className="text-fg-dim">- </span>
                       {highlight}

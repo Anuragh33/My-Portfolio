@@ -52,7 +52,7 @@ export const siteMeta = {
   title: "Full-Stack Software Engineer",
   email: "anuraghragidimilli@icloud.com",
   github: "https://github.com/Anuragh33",
-  linkedin: "https://www.linkedin.com/in/anuraghragidimilli/",
+  linkedin: "https://www.linkedin.com/in/anur3",
   url: "https://anuragh.fyi",
   resumePath: "/Anuragh_Resume.pdf",
   availability: "Open to full-time Software Engineer roles in AI-integrated product development",
