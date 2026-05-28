@@ -46,7 +46,7 @@ export default function HomePage() {
             href="/work"
             className="inline-flex font-mono text-[12px] uppercase tracking-[0.18em] text-fg-muted underline decoration-line-strong underline-offset-4 transition hover:text-accent"
           >
-            $ ls ~/work/ — view full archive
+            $ ls ~/work/
           </Link>
         </Reveal>
       </section>

@@ -1,5 +1,8 @@
+import Link from "next/link";
+
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { SocialLinks } from "@/components/social-links";
 import { TerminalFrame } from "@/components/terminal-frame";
 import { careerBridge } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
@@ -65,6 +68,50 @@ export default function AboutPage() {
           </TerminalFrame>
         </Reveal>
       </div>
+
+      <Reveal className="mt-6">
+        <TerminalFrame title="stack.txt">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// stack</p>
+          <div className="mt-4 grid gap-4 font-mono text-[13px] leading-7 sm:grid-cols-2">
+            <div>
+              <p className="text-fg">LANGUAGES</p>
+              <p className="mt-1 pl-4 text-fg-muted">Python · TypeScript · JavaScript · Java · Go</p>
+            </div>
+            <div>
+              <p className="text-fg">FRONTEND</p>
+              <p className="mt-1 pl-4 text-fg-muted">Next.js · React · Tailwind CSS · React Native · RTK Query · Apollo Client</p>
+            </div>
+            <div>
+              <p className="text-fg">BACKEND</p>
+              <p className="mt-1 pl-4 text-fg-muted">FastAPI · Node.js · Express · Django · Go · GraphQL · SOA</p>
+            </div>
+            <div>
+              <p className="text-fg">AI / ML</p>
+              <p className="mt-1 pl-4 text-fg-muted">LangGraph · LangChain · RAG · LLMs · TensorFlow · PyTorch · Llama 3 · Mistral</p>
+            </div>
+            <div>
+              <p className="text-fg">CLOUD & DEVOPS</p>
+              <p className="mt-1 pl-4 text-fg-muted">AWS (ECS, ECR, S3, EC2, Lambda, VPC) · Docker · Kubernetes · Jenkins · Ansible</p>
+            </div>
+            <div>
+              <p className="text-fg">DATA</p>
+              <p className="mt-1 pl-4 text-fg-muted">PostgreSQL · MySQL · MongoDB · Redis · Supabase · NeonDB · DrizzleORM</p>
+            </div>
+          </div>
+        </TerminalFrame>
+      </Reveal>
+
+      <Reveal className="mt-6">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <SocialLinks showEmail />
+          <Link
+            href="/work"
+            className="font-mono text-[12px] uppercase tracking-[0.18em] text-fg-muted transition hover:text-accent"
+          >
+            $ ls ~/work/
+          </Link>
+        </div>
+      </Reveal>
     </div>
   );
 }

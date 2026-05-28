@@ -42,7 +42,7 @@ export function FileMenu() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line-strong bg-elevated">
-      <div className="mx-auto flex w-full items-center justify-between gap-4 px-4 py-1.5 font-mono text-[12px] text-fg sm:px-6 lg:px-10 xl:px-16 2xl:px-24">
+      <div className="relative z-50 mx-auto flex w-full items-center justify-between gap-4 px-4 py-1.5 font-mono text-[12px] text-fg sm:px-6 lg:px-10 xl:px-16 2xl:px-24">
         <Link href="/" className="text-fg transition hover:text-accent">
           <span className="text-accent">$</span> anuragh@portfolio
         </Link>

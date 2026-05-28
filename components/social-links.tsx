@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 
 import { siteMeta } from "@/lib/data";
 
@@ -10,16 +10,7 @@ type SocialLinksProps = {
 export function SocialLinks({ className = "", showEmail = false }: SocialLinksProps) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <a
-        href={siteMeta.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub profile"
-        className="border border-line-strong p-2 text-fg transition hover:border-accent hover:text-accent"
-      >
-        <Github className="h-4 w-4" />
-      </a>
-      <a
+      <
         href={siteMeta.linkedin}
         target="_blank"
         rel="noopener noreferrer"

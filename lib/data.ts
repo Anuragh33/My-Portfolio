@@ -49,41 +49,40 @@ export type BuildLogEntry = {
 
 export const siteMeta = {
   name: "Anuragh Ragidimilli",
-  title: "Full-Stack AI Developer",
+  title: "Full-Stack Software Engineer",
   email: "anuraghragidimilli@icloud.com",
   github: "https://github.com/Anuragh33",
   linkedin: "https://www.linkedin.com/in/anuraghragidimilli/",
   url: "https://anuragh.fyi",
   resumePath: "/Anuragh_Resume.pdf",
-  availability: "Open to full-time software engineering roles",
+  availability: "Open to full-time Software Engineer roles in AI-integrated product development",
   hero:
-    "Full-Stack AI Developer with 3.5+ years of experience building intelligent products, scalable systems, and applied AI workflows end to end.",
+    "Full-Stack Software Engineer with 3.5+ years building enterprise-scale AI systems and web applications — LangGraph agentic workflows, LangChain RAG pipelines, and Next.js frontends deployed on AWS for Fortune 500 healthcare clients.",
   subhero:
-    "I build production-grade full-stack products and embed AI where it creates real leverage."
+    "I build enterprise-scale full-stack products and production AI systems where reliability and real-world impact matter."
 };
 
 export const careerBridge =
   "Between Wipro and UnitedHealth Group, I completed my MS in Computer Science and focused on independent product builds, AI experiments, and strengthening full-stack delivery before joining enterprise healthcare engineering.";
 
 export const proofPoints = [
-  "3.5+ years shipping production software",
-  "Enterprise AI and agentic workflows",
-  "Next.js, TypeScript, Python, FastAPI",
-  "Healthcare systems, product engineering, and automation"
+  "3.5+ years enterprise-scale software engineering",
+  "LangGraph + LangChain RAG — 47% process reduction at UHG",
+  "Python, TypeScript, Next.js, FastAPI, Go",
+  "Fortune 500 healthcare — HIPAA-safe, zero data leakage"
 ];
 
 export const outcomes: Array<{ value: string; label: string }> = [
   { value: "3.5+", label: "years production experience" },
   { value: "200+", label: "bots supported through Bot Center" },
-  { value: "4", label: "featured projects shipped" },
-  { value: "AI", label: "workflows built for real leverage" }
+  { value: "11", label: "featured projects built" },
+  { value: "15+", label: "LLM providers integrated across projects" }
 ];
 
 export const workFilters = [
   { id: "all", label: "All work" },
   { id: "ai", label: "AI systems" },
-  { id: "full-stack", label: "Full-stack" },
-  { id: "flagship", label: "Flagship" }
+  { id: "full-stack", label: "Full-stack" }
 ] as const;
 
 export type WorkFilterId = (typeof workFilters)[number]["id"];
@@ -92,22 +91,22 @@ export const capabilities = [
   {
     title: "AI Systems",
     description:
-      "Agentic workflows, RAG pipelines, model integrations, and automation that solve real product problems."
+      "Production agentic workflows with LangGraph and LangChain, RAG pipelines with pgvector and Chroma, and LLM integrations that automate real enterprise tasks at scale."
   },
   {
     title: "Full-Stack Product Engineering",
     description:
-      "From cinematic interfaces to backend architecture, I build end-to-end systems that feel coherent."
+      "Next.js and React frontends to FastAPI and Go backends — enterprise-scale systems deployed on AWS that work end to end and ship on time."
   },
   {
     title: "Scalable Backend Workflows",
     description:
-      "APIs, schedulers, data flows, and orchestration patterns that make products operationally useful."
+      "RESTful and GraphQL APIs, data pipelines, and orchestration patterns with proven throughput — 45+ endpoints maintained, 50% integration time reduction."
   },
   {
     title: "Modern Interfaces",
     description:
-      "Premium, responsive UI systems that make complex products feel clear, fast, and trustworthy."
+      "Responsive, accessible UI systems built in TypeScript and Tailwind — from real-time operations dashboards to consumer learning products."
   }
 ];
 
@@ -115,35 +114,45 @@ export const education = [
   {
     degree: "MS, Computer Science",
     school: "Wichita State University",
-    timeline: "2021 – 2023",
+    timeline: "Aug 2021 – Jul 2023",
     detail:
       "Graduate coursework spanning machine learning, distributed systems, and applied AI, completed between Wipro and UnitedHealth Group."
+  },
+  {
+    degree: "BE, Electronics and Communication Engineering",
+    school: "SCSVMV University",
+    timeline: "Jul 2016 – Jul 2020",
+    detail:
+      "Bachelor of Engineering in Electronics and Communication, Kanchipuram, India."
   }
 ];
 
 export const experiences = [
   {
-    role: "Software Developer",
+    role: "Software Engineer",
     company: "UnitedHealth Group",
-    timeline: "Aug 2023 - Present",
+    timeline: "Aug 2023 – Present",
     summary:
-      "Building enterprise-grade AI workflows, privacy-first RAG systems, and modern product interfaces inside a healthcare environment where reliability and data boundaries matter.",
+      "Building production Agentic AI workflows and on-premise RAG systems for Fortune 500 healthcare — LangGraph pipelines, HIPAA-safe document processing, and the Next.js Bot Center managing 200+ bots.",
     highlights: [
-      "Architected agentic AI workflows using LangGraph and Python for multi-step reasoning and automation.",
-      "Built privacy-first RAG pipelines with FastAPI and quantized LLMs for secure on-premise document workflows.",
-      "Delivered high-performance React and Next.js interfaces, including Bot Center for managing 200+ bots."
+      "Architected a production Agentic AI workflow using LangGraph and Python, implementing cyclic state management and multi-turn reasoning that cut manual process handling by 47% across autonomous agents running complex multi-step healthcare tasks.",
+      "Built and deployed a fully on-premise RAG pipeline using pgvector and Chroma with quantized Llama 3 and Mistral models served via FastAPI, processing 40+ HIPAA-sensitive document workflows daily with zero external data exposure.",
+      "Integrated custom AI agents with internal REST APIs and SQL databases via LangChain, automating 30 cross-platform workflows and eliminating 12 hours/week of manual orchestration.",
+      "Launched Bot Center, a Next.js/React.js centralized robotics management platform, automating operations for 200+ bots with real-time health dashboards and reducing operational overhead by 35%.",
+      "Designed and maintained 45+ RESTful and GraphQL/Apollo endpoints using SOA patterns, enabling real-time data handling across distributed Next.js micro-frontend services."
     ]
   },
   {
     role: "Project Engineer",
     company: "Wipro",
-    timeline: "Sep 2020 - Sep 2021",
+    timeline: "Sep 2020 – Sep 2021",
     summary:
-      "Worked across cloud infrastructure, REST APIs, frontend development, and data performance improvements for production software in a high-availability environment.",
+      "Cloud infrastructure modernization, RESTful microservices, and React frontend delivery — achieving 99.9% uptime SLAs and measurable performance gains across the full stack.",
     highlights: [
-      "Modernized AWS infrastructure with EC2, S3, and VPC to improve operational efficiency and availability.",
-      "Built RESTful APIs with FastAPI and Go to reduce integration time and strengthen reliability.",
-      "Developed responsive React interfaces and improved database performance across MySQL, MongoDB, and Redis."
+      "Re-architected cloud infrastructure on AWS (EC2, S3, VPC), improving deployment reliability and reducing infrastructure incident rate by 70%, supporting 99.9% uptime SLAs across production workloads.",
+      "Built RESTful microservices using FastAPI and Go, cutting system integration time by 50% and improving cross-team reliability through clearly defined service contracts.",
+      "Developed responsive React front-end applications with JavaScript, HTML, and CSS, boosting user engagement by 40% and improving satisfaction scores by 20% in UX benchmarks.",
+      "Optimized MySQL, MongoDB, and Redis query performance, achieving a 40% reduction in execution time and enabling real-time analytics for client-facing dashboards."
     ]
   }
 ];
@@ -185,7 +194,7 @@ export const projects: Project[] = [
       "It shows I can ship past the browser: OS APIs, privacy-sensitive data handling, and real-time AI UX in a tool people would actually run during a live meeting.",
     reflection:
       "The hardest part is not the model call—it is trust: local storage, no telemetry, and a UI that never leaks into the recording.",
-    stack: ["Tauri", "Rust", "TypeScript", "React", "SQLite", "Whisper", "macOS"],
+    stack: ["Rust", "Tauri", "TypeScript", "React", "Whisper STT", "CoreAudio", "ScreenCaptureKit", "SQLite"],
     capabilities: ["Desktop apps", "Real-time AI", "Native integrations", "Privacy-first design"],
     links: [
       { label: "Live site", href: "https://oliver-site-psi.vercel.app", kind: "demo" },
@@ -201,21 +210,21 @@ export const projects: Project[] = [
       { label: "Providers", value: "6 LLM + Whisper" }
     ],
     impactBullets: [
-      "Invisible to screen share via native macOS window exclusion",
-      "No backend relay—keys and history stay on your machine",
-      "Combines STT, vision (screenshots), and multi-provider chat in one overlay"
+      "Invisible to screen recorders via NSWindowSharingNone — verified against Zoom, Teams, and Google Meet",
+      "AES-GCM-SIV encrypted key vault in SQLite — no backend relay, no telemetry, all data on-device",
+      "Whisper STT + real-time streaming across 6 providers with a global hotkey that never steals focus"
     ],
     filterTags: ["flagship", "ai", "full-stack"]
   },
   {
     slug: "work-search",
     title: "Work Search",
-    tagline: "AI-powered job search across many sources—with resume parsing, skill matching, ATS scoring, and application tracking.",
+    tagline: "LangGraph-orchestrated job search with concurrent fan-out across 6 portals, a 5-dimension LLM scoring pipeline, and ATS-optimized resumes and cover letters in under 30 seconds.",
     status: "Full-stack product · Shipped",
     role: "Solo full-stack engineer",
     timeline: "2025 – 2026",
     summary:
-      "Work Search is a Next.js frontend and FastAPI backend that aggregates listings, ingests resumes (PDF/DOCX), scores fit with embeddings and LLM helpers, and runs scheduled pipelines to keep jobs fresh.",
+      "Work Search is a LangGraph-orchestrated job search platform with concurrent fan-out across 6 portals (Greenhouse, Lever, Ashby, LinkedIn, Indeed), a 5-dimension LLM scoring pipeline, and ATS-optimized resume and cover letter generation in under 30 seconds — used by 40+ users with 100+ applications processed.",
     problem:
       "Job search spreads across boards, ATS portals, and spreadsheets. Resumes, skill matching, and apply links are rarely in one place.",
     solution:
@@ -243,7 +252,7 @@ export const projects: Project[] = [
       "Recruiters can see full-stack delivery: typed frontend, serious Python backend, auth, persistence, and applied AI in one shipped project.",
     reflection:
       "Job search is a workflow problem. The win is matching, persistence, and automation—not another wrapper around a single API.",
-    stack: ["Next.js", "TypeScript", "FastAPI", "Python", "Clerk", "Neon/Postgres", "OpenAI", "Embeddings"],
+    stack: ["Next.js 16", "React 19", "TypeScript", "FastAPI", "LangChain", "LangGraph", "Redis", "Clerk", "Three.js"],
     capabilities: ["AI systems", "Backend orchestration", "Data pipelines", "Product UX"],
     links: [
       { label: "Live demo", href: "https://worksearch-33ha.vercel.app/sign-in", kind: "demo" },
@@ -255,13 +264,13 @@ export const projects: Project[] = [
     accent: "from-sky-300/25 via-blue-400/10 to-transparent",
     heroImage: "/projects/work-search.png",
     metrics: [
-      { label: "Sources", value: "20+ job feeds" },
-      { label: "Backend", value: "FastAPI services" }
+      { label: "Job portals", value: "6" },
+      { label: "Users", value: "40+" }
     ],
     impactBullets: [
-      "End-to-end pipeline: ingest jobs, parse resumes, score, and track applications",
-      "ATS-aware apply links and quality gates on incoming listings",
-      "Shows how I wire Next.js, Clerk, Postgres, and Python AI services together"
+      "LangGraph fan-out across 6 portals (Greenhouse, Lever, Ashby, LinkedIn, Indeed) with 5-dimension LLM scoring",
+      "ATS-optimized resumes and cover letters in under 30 seconds — 100+ applications processed by 40+ users",
+      "Three.js globe for location filtering, Kanban pipeline, and Clerk auth — deployed on Vercel and Hugging Face Spaces"
     ],
     filterTags: ["ai", "full-stack"]
   },
@@ -392,9 +401,11 @@ export const buildLog: BuildLogEntry[] = [
     date: "2026-05-15",
     topic: "Interaction experiments",
     content: [
-      "Desktop AI has different constraints than web: permissions, audio routing, and latency all show up in the first week.",
-      "Oliver forced me to treat privacy as a feature—local SQLite, encrypted keys, and direct provider calls.",
-      "The overlay only works if it stays off the recording; native APIs are not optional here."
+      "Desktop AI has different constraints than web: OS permissions, audio routing, and screen-capture exclusion all show up in the first week.",
+      "The hardest part of Oliver was not the model integration — it was making the window truly invisible. macOS uses NSWindowSharingNone at the window level, but you still have to verify against every major conferencing app. Zoom, Teams, and Google Meet each handle screen capture differently.",
+      "Audio routing exposed another layer. Getting both mic and system audio into a single stream requires a virtual audio device like BlackHole, and the setup has to be explained clearly in onboarding or users give up before the first transcription.",
+      "Privacy became a design constraint, not a feature. Storing API keys with AES-GCM-SIV encryption and keeping all history in local SQLite means there is no backend to breach. That is a trust story I can tell a user in one sentence.",
+      "The lesson: native product development compresses your tolerance for abstraction. When you own the window, the audio graph, and the key store, every shortcut shows."
     ]
   },
   {
@@ -405,9 +416,11 @@ export const buildLog: BuildLogEntry[] = [
     date: "2026-05-10",
     topic: "AI systems",
     content: [
-      "Models are useful, but they are not the product. The surrounding system is the product.",
-      "Matching, persistence, confidence, handoffs, and automation create more real user value than conversational novelty alone.",
-      "That belief shapes how I now build AI into products from the start."
+      "Every time I have built something with an AI model at its center, the product work turned out to be everything around the model, not the model itself.",
+      "Work Search is a good example. The resume parser, the ATS scoring engine, the scheduler that keeps listings fresh, the normalization layer across job feeds — each of those is a harder problem than swapping in a better embedding model.",
+      "The same pattern showed up at UnitedHealth Group. The agentic workflows I built with LangGraph were only as good as the memory, handoff logic, and confidence thresholds around them. Strip those out and you have a chat box.",
+      "AI wrappers feel fast to ship because you skip the surrounding system. But that system is where the actual user value lives: persistence, automation, explainability, and the ability to act on results rather than just display them.",
+      "I now start every AI product by designing the workflow first. Where does data come in, what decisions get made, what happens to the output? The model is one step in that chain, not the chain itself."
     ]
   },
   {
@@ -418,9 +431,11 @@ export const buildLog: BuildLogEntry[] = [
     date: "2026-04-28",
     topic: "Product UX",
     content: [
-      "Progress bars, lesson states, and practice modes look small in isolation, but together they become the product rhythm.",
-      "Consumer products demand emotional clarity as much as technical clarity.",
-      "That discipline makes my enterprise and AI work better too."
+      "When I built Bhasha I kept reaching for more features — more languages, more challenge types, more analytics. Every time I shipped one, the users who stayed were not using the new features. They were completing one more lesson before closing the tab.",
+      "The retention mechanic in any learning product is not the curriculum. It is the sense of forward motion. Progress bars, lesson streaks, and quest completions are not decoration — they are the core interaction loop.",
+      "This forced me to think carefully about what a session ending feels like. In Bhasha, a session ends when you finish a lesson or complete a quest — a clear stopping point that also feels like a small win.",
+      "Consumer products demand emotional clarity as much as technical clarity. The schema can be perfectly normalized and the API perfectly typed, but if the user cannot feel progress in thirty seconds, they leave.",
+      "I carry that discipline into AI product work. An agentic system that gives useful output but no sense of what it did or what comes next is technically correct and experientially broken. The feedback loop matters even when the user is not a student."
     ]
   }
 ];

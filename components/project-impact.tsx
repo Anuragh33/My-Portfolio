@@ -8,8 +8,6 @@ type ProjectImpactProps = {
 
 export function ProjectImpact({ project }: ProjectImpactProps) {
   const demo = project.links.find((link) => link.kind === "demo");
-  const repo = project.links.find((link) => link.kind === "repo");
-  const detailsHref = `/work/${project.slug}`;
 
   return (
     <TerminalFrame title="impact.md" className="mt-6">
@@ -40,22 +38,6 @@ export function ProjectImpact({ project }: ProjectImpactProps) {
             $ open demo
           </a>
         ) : null}
-        {repo ? (
-          <a
-            href={repo.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-line-strong px-4 py-2 uppercase tracking-[0.18em] text-fg transition hover:border-accent hover:text-accent"
-          >
-            $ git clone
-          </a>
-        ) : null}
-        <a
-          href={detailsHref}
-          className="border border-line-strong px-4 py-2 uppercase tracking-[0.18em] text-fg transition hover:border-accent hover:text-accent"
-        >
-          $ cat details
-        </a>
       </div>
     </TerminalFrame>
   );

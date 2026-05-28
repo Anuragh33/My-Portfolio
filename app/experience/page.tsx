@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { TerminalFrame } from "@/components/terminal-frame";
-import { careerBridge, education, experiences, proofPoints } from "@/lib/data";
+import { careerBridge, education, experiences } from "@/lib/data";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -87,19 +87,6 @@ export default function ExperiencePage() {
         </TerminalFrame>
       </Reveal>
 
-      <Reveal className="mt-6">
-        <TerminalFrame title="signals.txt">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">// signals</p>
-          <div className="mt-4 grid gap-2 font-mono text-[13px] leading-7 md:grid-cols-2">
-            {proofPoints.map((point) => (
-              <p key={point} className="text-fg-muted">
-                <span className="text-fg-dim">- </span>
-                {point}
-              </p>
-            ))}
-          </div>
-        </TerminalFrame>
-      </Reveal>
     </div>
   );
 }

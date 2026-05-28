@@ -19,6 +19,7 @@ export function SiteFooter() {
         </div>
         <nav className="flex flex-wrap gap-4 text-fg-muted">
           <Link href="/work" className="hover:text-accent">~/work</Link>
+          <Link href="/experience" className="hover:text-accent">~/experience</Link>
           <Link href="/build-log" className="hover:text-accent">~/build-log</Link>
           <Link href="/about" className="hover:text-accent">~/about</Link>
           <Link href="/contact" className="hover:text-accent">~/contact</Link>

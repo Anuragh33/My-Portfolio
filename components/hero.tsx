@@ -9,7 +9,7 @@ import { TerminalFrame } from "@/components/terminal-frame";
 import { getFeaturedProjects, siteMeta } from "@/lib/data";
 
 const projectCount = getFeaturedProjects().length;
-const tickerLine = `> status: ${projectCount}_projects_live · stack: next-fastapi-tauri · role: full-stack-ai`;
+const tickerLine = `> status: ${projectCount}_projects_active · stack: next-fastapi-tauri · role: full-stack-ai`;
 
 const containerVariants: Variants = {
   hidden: {},
